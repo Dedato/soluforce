@@ -1,0 +1,18 @@
+{% extends "base.twig" %}
+
+{% block carousel %}
+<div class="owl-carousel">
+  {% for slide in post.get_field('acf_carousel_slides') %}
+    <div class="item">
+      <h1>{{slide.acf_slide_title}}</h1>
+      <h2>{{slide.acf_slide_subtitle}}</h2>
+      <a class="btn btn-outline" href="{{slide.acf_slide_page_link.url}}">{{slide.acf_slide_page_link.title}}</a>
+      <img src="{{TimberImage(slide.acf_slide_image).src}}" />
+    </div>
+  {% endfor %}
+</div>  
+{% endblock %}
+
+{% block content %}
+  {{content}}
+{% endblock %}

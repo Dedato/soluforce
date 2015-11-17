@@ -1,0 +1,46 @@
+  {% block head %}
+    {% include 'head.twig' %}
+    {{ function('wp_head') }}
+  {% endblock %}
+  </head>
+
+	<body class="{{body_class}}">
+	  <!--[if IE]>
+      <div class="alert alert-warning">
+        <?php _e('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage'); ?>
+      </div>
+    <![endif]-->
+		{% block header %}
+		  {% include 'header.twig' %}
+    {% endblock %}
+    
+    <div class="wrap" role="document">
+      {% if post.get_field('acf_carousel_slides') %}
+        {% block carousel %}
+          Sorry, no content
+        {% endblock %}
+      {% endif %}
+      <div class="container">
+        <div class="content row">
+          <main class="main">
+            {% block content %}
+              Sorry, no content
+            {% endblock %}
+          </main>
+          {% if sidebar %}
+            <aside class="sidebar">
+              {% block sidebar %}
+                No sidebar
+              {% endblock %}
+            </aside>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+		{% block footer %}
+		  {% include 'footer.twig' %}
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>
