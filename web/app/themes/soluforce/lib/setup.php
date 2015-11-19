@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Setup;
+namespace Dedato\SoluForce\Setup;
 
-use Roots\Sage\Assets;
+use Dedato\SoluForce\Assets;
 
 /**
  * Theme setup

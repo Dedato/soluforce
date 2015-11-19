@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Customizer;
+namespace Dedato\SoluForce\Customizer;
 
-use Roots\Sage\Assets;
+use Dedato\SoluForce\Assets;
 
 /**
  * Add postMessage support

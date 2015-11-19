@@ -17,7 +17,7 @@
     <div class="wrap" role="document">
       {% if post.get_field('acf_carousel_slides') %}
         {% block carousel %}
-          Sorry, no content
+          {% include 'carousel.twig' %}
         {% endblock %}
       {% endif %}
       <div class="container">
@@ -27,10 +27,10 @@
               Sorry, no content
             {% endblock %}
           </main>
-          {% if sidebar %}
+          {% if display_sidebar %}
             <aside class="sidebar">
               {% block sidebar %}
-                No sidebar
+                {% include 'sidebar.twig' %}
               {% endblock %}
             </aside>
           {% endif %}

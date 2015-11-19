@@ -1,8 +1,8 @@
 <?php
 
-namespace Roots\Sage\Extras;
+namespace Dedato\SoluForce\Extras;
 
-use Roots\Sage\Setup;
+use Dedato\SoluForce\Setup;
 
 /**
  * Add <body> classes

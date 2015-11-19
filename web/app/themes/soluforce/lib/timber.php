@@ -23,9 +23,10 @@ class StarterSite extends TimberSite {
 	}
   
 	function add_to_context( $context ) {
-		$context['main_menu']  = new TimberMenu('primary_navigation');
-		$context['site']       = $this;
-		$context['sidebar']    = Setup\display_sidebar();
+		$context['main_menu']       = new TimberMenu('primary_navigation');
+		$context['site']            = $this;
+		$context['display_sidebar'] = Setup\display_sidebar();
+		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
 		return $context;
 	}
 	

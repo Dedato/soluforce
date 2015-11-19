@@ -1,1 +1,4 @@
-<?php get_template_part('templates/content-single', get_post_type()); ?>
+<?php
+$data         = Timber::get_context();
+$data['post'] = new TimberPost();
+Timber::render('single.twig', $data);

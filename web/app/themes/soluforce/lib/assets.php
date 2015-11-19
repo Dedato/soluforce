@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Sage\Assets;
+namespace Dedato\SoluForce\Assets;
 
 /**
  * Get paths for assets
