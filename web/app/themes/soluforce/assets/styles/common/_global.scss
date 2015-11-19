@@ -1,1 +1,6 @@
-
+// Images
+img,
+figure,
+picture {
+  @include img-responsive();
+}
