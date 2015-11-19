@@ -1,0 +1,7 @@
+.wrap {
+  padding-top: $header-height;
+  .mini & { padding-top: $header-height-min; }
+  @media (max-width: $screen-xs-max) {
+    padding-top: $header-height-min;
+  }
+}
