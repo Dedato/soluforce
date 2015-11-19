@@ -1,0 +1,12 @@
+.owl-carousel {
+  .item {
+    position: relative;
+    display: table;
+    .carousel-caption {
+      position: absolute;
+      top: 50%;
+      width: inherit;
+      transform: translate(0,-50%);
+    }
+  }
+}
