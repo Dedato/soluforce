@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "053890d527a9a8ffdaf916aade0fa032",
-    "content-hash": "48efac298cf259a0f501af45e6d9f88b",
+    "hash": "3da9066f94bb6c64b515dcf78b370980",
+    "content-hash": "45fbd8f664eee4a26279e2a0e0afda6f",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -361,16 +361,16 @@
         },
         {
             "name": "roots/soil",
-            "version": "dev-master",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/soil.git",
-                "reference": "1288e3fee85d7e3c87008f3a6451b31c17cdcdba"
+                "reference": "c9e224facb851011284c3ea925980d988473fb3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/roots/soil/zipball/1288e3fee85d7e3c87008f3a6451b31c17cdcdba",
-                "reference": "1288e3fee85d7e3c87008f3a6451b31c17cdcdba",
+                "url": "https://api.github.com/repos/roots/soil/zipball/c9e224facb851011284c3ea925980d988473fb3f",
+                "reference": "c9e224facb851011284c3ea925980d988473fb3f",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
             "keywords": [
                 "wordpress"
             ],
-            "time": "2015-11-09 20:30:56"
+            "time": "2015-11-19 04:59:49"
         },
         {
             "name": "twig/twig",
@@ -739,21 +739,21 @@
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "2.3.5",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast/wordpress-seo.git",
-                "reference": "d57354a7c2d0874a4eb0b42fc61148fd19d42c60"
+                "reference": "77ffb11a6c04789f0a761bc2aaaf5b7f3976aa8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast/wordpress-seo/zipball/d57354a7c2d0874a4eb0b42fc61148fd19d42c60",
-                "reference": "d57354a7c2d0874a4eb0b42fc61148fd19d42c60",
+                "url": "https://api.github.com/repos/Yoast/wordpress-seo/zipball/77ffb11a6c04789f0a761bc2aaaf5b7f3976aa8d",
+                "reference": "77ffb11a6c04789f0a761bc2aaaf5b7f3976aa8d",
                 "shasum": ""
             },
             "require": {
                 "composer/installers": "~1.0",
-                "xrstf/composer-php52": "^1.0.17",
+                "xrstf/composer-php52": "^1.0.19",
                 "yoast/api-libs": "^2.0",
                 "yoast/i18n-module": "^1.0",
                 "yoast/license-manager": "^1.2"
@@ -766,7 +766,8 @@
                 "classmap": [
                     "admin/",
                     "frontend/",
-                    "inc/"
+                    "inc/",
+                    "deprecated/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -786,15 +787,13 @@
                 "seo",
                 "wordpress"
             ],
-            "time": "2015-09-16 10:01:14"
+            "time": "2015-11-18 14:03:04"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "roots/soil": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
