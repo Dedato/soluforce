@@ -1,12 +1,176 @@
+// Owl Specific
 .owl-carousel {
+  .owl-stage {
+    background: $brand-primary;
+  }
   .item {
     position: relative;
-    display: table;
+    @include intrinsic-pad-ratio(8, 3, '.stretch', 768, 4, 3);
+    @media (min-width: 1680px) {
+      // Stretch image above minimum required ACF width
+      picture {overflow: hidden; }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
     .carousel-caption {
       position: absolute;
-      top: 50%;
-      width: inherit;
-      transform: translate(0,-50%);
+      bottom: 0;
+      width: 100%;
+      padding: ($grid-gutter-width / 2) 0;
+      text-shadow:0.03em 0.03em 0.06em rgba(0, 0, 0, 0.25);
+      @include background-opacity($brand-primary, 0.75);
+      h1 {
+        font-family: $font-family-sans-serif-light;
+        font-weight: 300;
+        font-size: 1.875em;
+      }
+      .lead {margin-bottom: 1em; }
+      .btn {
+        .fa {
+          font-size: 1.2em;
+          margin-left: 0.25em;
+          line-height: 0;
+          vertical-align: middle;
+        } 
+      }
     }
   }
+  // Navigation
+  .owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    [class*='owl-'] {
+      height: 1em;
+      line-height: 1;
+      margin-top: -0.75em;
+      font-size: 2.5em;
+      color: $white;
+      opacity: 0.9;
+      cursor: pointer;
+      transition: opacity .25s ease;
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+      .fa {vertical-align: top; }
+      &.owl-prev {
+        float: left;
+        margin-left: $grid-gutter-width / 2;
+      }
+      &.owl-next {
+        float: right;
+        margin-right: $grid-gutter-width / 2;
+      }
+    }
+    &.disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}
+
+// General
+.carousel {
+  position: relative;
+  // Dots
+  .dots-nav {
+    .dots {
+      height: 40px;
+      line-height: 1;
+      padding: $grid-gutter-width / 2;
+      @include background-opacity($brand-primary, 0.75);
+    }
+    .owl-dot {
+      display: inline-block;
+      zoom: 1;
+      *display: inline;
+      span {
+        cursor: pointer;
+        width: 12px;
+        height: 12px;
+        margin: 0 12px 0 0;
+        background: $white;
+        opacity: 0.5;
+        display: block;
+        -webkit-backface-visibility: visible;
+        transition: opacity 0.2s ease;
+        border-radius: 100%;
+      }  
+      &.active,
+      &:hover {
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+/* Portrait tablets and up */
+@media (min-width: $screen-sm) {
+  .owl-carousel {
+    .item {
+      .carousel-caption {
+        top: 25%;
+        width: inherit;
+        transform: translate(0, -25%);
+        background: none;
+        h1 {
+          font-size: 3.125em;
+          margin-bottom: 0.25em;
+        }
+      }
+    }
+    .owl-nav {
+      [class*='owl-'] {
+        font-size: 3.75em;
+      }
+    }
+  }
+  .carousel {
+    .dots-nav {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      z-index: $zindex-tooltip;
+      padding-left: calc( (#{$container-md} / 12 * 4) + #{$grid-gutter-width / 2});
+    }
+  }
+}
+
+@media (min-width: $container-lg) {
+  .carousel {
+    .dots-nav {
+      padding-left: calc( ((#{$container-lg} / 12 * 4) + #{$grid-gutter-width / 2}) + ((100vw - #{$container-lg}) / 2));
+    }
+  }
+}
+
+/* Desktops and up */
+@media (min-width: $screen-lg) {
+  .owl-carousel {
+    .item {
+      .carousel-caption {
+        top: 45%;
+        transform: translate(0, -45%);
+        h1 {
+          font-size: 3.75em;
+          margin-bottom: 0.5em;
+        }
+        .btn {
+          @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, 1, $border-radius-large);
+        }
+      }
+    }
+    .owl-nav {
+      [class*='owl-'] {
+        font-size: 6.25em;
+        &.owl-prev {margin-left: $grid-gutter-width; }
+        &.owl-next {margin-right: $grid-gutter-width; }
+      }
+    }
+  }  
 }
