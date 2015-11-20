@@ -1,5 +1,11 @@
 .btn-outline {
-  border-width: 0.14em;
+  border-width: 0.083em;
+  transition: all .25s ease;
+  &:hover,
+  &:focus,
+  &.focus {
+    text-shadow: none;
+  }
   &.btn-default {
     @include button-variant($btn-default-bg, transparent, $btn-default-border);
     &:hover,
