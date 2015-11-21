@@ -42,6 +42,18 @@
           "url": "http://connect.advancedcustomfields.com/index.php?p=pro&a=download&k=b3JkZXJfaWQ9MzQ1ODJ8dHlwZT1kZXZlbG9wZXJ8ZGF0ZT0yMDE0LTA3LTEyIDE3OjE5OjU3"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "gravityforms/gravityforms",
+        "version": "1.9.14.25",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "http://s3.amazonaws.com/gravityforms/releases/gravityforms_1.9.14.25.zip?AWSAccessKeyId=1603BBK66770VCSCJSG2&Expires=1448197220&Signature=goDqdRv3lr5NMAcaaEICLvODoRc%3D"
+        }
+      }
     }
   ],
   "require": {
@@ -53,7 +65,8 @@
     "jarednova/timber": "^0.22.0",
     "advanced-custom-fields/advanced-custom-fields-pro": "5.3.2.2",
     "wpackagist-plugin/wp-retina-2x": "^3.4.8",
-    "yoast/wordpress-seo": "3.0.*"
+    "yoast/wordpress-seo": "3.0.*",
+    "gravityforms/gravityforms": "1.9.14.25"
   },
   "extra": {
     "installer-paths": {

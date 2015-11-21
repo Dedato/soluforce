@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3da9066f94bb6c64b515dcf78b370980",
-    "content-hash": "45fbd8f664eee4a26279e2a0e0afda6f",
+    "hash": "b50157d82ba2030df89e557bb35a7965",
+    "content-hash": "bf5f47e0c18f01f31dec0848da052a64",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -217,6 +217,17 @@
                 "zikula"
             ],
             "time": "2015-10-29 23:28:48"
+        },
+        {
+            "name": "gravityforms/gravityforms",
+            "version": "1.9.14.25",
+            "dist": {
+                "type": "zip",
+                "url": "http://s3.amazonaws.com/gravityforms/releases/gravityforms_1.9.14.25.zip?AWSAccessKeyId=1603BBK66770VCSCJSG2&Expires=1448196128&Signature=RZCU3%2FLhgMAyMAmvFpkjdBopMZ0%3D",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "wordpress-plugin"
         },
         {
             "name": "jarednova/timber",
