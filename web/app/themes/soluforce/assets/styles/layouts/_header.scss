@@ -1,38 +1,16 @@
 .banner {
   background: $brand-primary;
-  #top-nav {
-    background:rgba(0,0,0,0.5);
-  }
-  .navbar-header {
-    float: none;
-    .brand {
-      display: block;
-      height: auto;
-      padding: 20px 0 0;
-      line-height: 1;
-      transition: all 0.25s ease;
-      img {
-        max-width: 263px;
-        height: auto;
-        transition: all 0.25s ease;
-      }
-      &:focus {
-        outline: none;
-      }
-      @media (max-width: $screen-xs-max) {
-        padding: 10px 0;
-        img {
-          max-width: 200px;
-          height: auto;
-        }
-      }
-    }
-    #main-nav {
+  .search {
+    padding-right: 0;
+    padding-left: 0;
+    .navbar-nav {width: 100%; }
+    @media (min-width: $screen-lg) {
       padding-left: $grid-gutter-width / 2;
-      padding-right: $grid-gutter-width / 2;
-      .nav {
-        padding: 35px 0 0;
-      }  
     }
+  }
+  .service {padding-left: 0; }
+  @media (max-width: 480px) {
+    .search {width: 0; }
+    .service {width: 100%; }
   }
 }
