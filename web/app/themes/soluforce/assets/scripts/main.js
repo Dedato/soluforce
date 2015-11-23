@@ -18,7 +18,41 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
+        // Add submenu class if present
+        if ( $('.banner #sub-nav').length ) {
+          $('body').addClass('has-sub');
+        }
+        // Minimize Header when scrolling
+        var headerHeight = $('.banner').outerHeight();
+        // Window load neccessary for accurate doc height
+        $(window).load(function() {
+          if ( $(window).height() + headerHeight < $(document).height() ) {
+            $(window).scroll(function() {
+              if( $(window).scrollTop() > 0) {
+                $('body').addClass('mini');
+              } else {
+                $('body').removeClass('mini');
+              }
+            });
+          }
+        });
+        // Searchfield
+        $('.search-form__top-nav .toggle-search').click(function(e) {
+          e.preventDefault();
+          $(this).toggleClass('search-on');
+          $('.search-form__top-nav .search-field').animate({width: 'toggle'}, 'fast', function() {
+            $('.search-form__top-nav .search-field').focus();
+            $('.search-form__top-nav .search-field').keypress(function(e) {
+              if (e.which === 13) {
+                e.preventDefault();
+                $('.search-form__top-nav').submit();
+              }
+            });
+            $('.search-form__top-nav .toggle-search').click(function(e) {
+              e.preventDefault();
+            });
+          });
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
