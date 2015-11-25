@@ -8,6 +8,7 @@ $sidebar-sm-columns:              4;
 
 //== Header settings
 $header-height:                   125px;
+$header-height-sm:                110px;
 $header-height-min:               85px;
 
 
@@ -22,6 +23,7 @@ $white:                           #FFF;
 
 $brand-primary:                   #336699;
 $brand-primary-light:             #E0E8F0;
+$brand-primary-dark:              #1A334D;
 $brand-secondary:                 #FFF00C;
 $brand-success:                   #5cb85c;
 $brand-info:                      #5bc0de;
@@ -45,7 +47,7 @@ $font-size-base:                  16px;
 $font-size-large:                 ceil(($font-size-base * 1.5)); // ~24px
 $font-size-small:                 ceil(($font-size-base * 0.875)); // ~14px
 
-$font-size-h1:                    floor(($font-size-base * 2.6)); // ~36px
+$font-size-h1:                    floor(($font-size-base * 2)); // ~32px
 $font-size-h2:                    floor(($font-size-base * 2.15)); // ~30px
 $font-size-h3:                    ceil(($font-size-base * 1.7)); // ~24px
 $font-size-h4:                    ceil(($font-size-base * 1.25)); // ~18px
