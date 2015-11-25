@@ -31,3 +31,47 @@ function excerpt_more() {
   return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
+
+
+/**
+ *  WPML cleanup
+ */
+define('ICL_DONT_LOAD_NAVIGATION_CSS', true);
+define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
+define('ICL_DONT_LOAD_LANGUAGES_JS', true);
+
+
+/**
+ *  ACF Options Page
+ */
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'SoluForce Options',
+		'menu_title'	=> 'Options',
+		'menu_slug' 	=> 'soluforce-options',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> 'admin.php?page=acf-options-social-media'
+	));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Social Media Settings',
+		'menu_title'	=> 'Social Media',
+		'parent_slug'	=> 'soluforce-options',
+	));
+}
+
+
+/* 
+ * Split content at the more tag and return an array
+ */
+function split_more_content() {
+  global $post;
+  if( strpos( $post->post_content, '<!--more-->' ) ) {
+    $content = preg_split('/<span id="more-\d+"><\/span>/i', get_the_content('more'));
+    $ret     = '<div class="content_excerpt">'. array_shift($content). '</div>';
+    if (!empty($content)) $ret .= '<div class="content_more">'. implode($content). '</div>';
+    $ret .= '<div class="split_more_link"><a class="read-more" title="'. __('Read more', 'soluforce') .'" data-text-less="'. __('Read less', 'soluforce') .'">'. __('Read more', 'soluforce') .'</a></div>';
+    return apply_filters('the_content', $ret);
+  } else {
+    return the_content();
+  }  
+}
