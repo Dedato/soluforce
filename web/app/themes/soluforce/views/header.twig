@@ -2,7 +2,7 @@
   <nav id="top-nav">
     <div class="container">
       <div class="row">
-        <div class="search col-xs-6 col-sm-8">          
+        <div class="search col-xs-5 col-sm-8">          
           <ul class="nav navbar-right navbar-nav sub-nav">
             <form role="search" method="get" class="search-form__top-nav" action="{{site.url}}/">
             	<label>
@@ -13,7 +13,7 @@
             </form>
           </ul>
         </div>
-        <div class="service col-xs-6 col-sm-4">
+        <div class="service col-xs-7 col-sm-4">
           {% if top_menu.get_items %}
             <ul class="nav navbar-nav sub-nav">
               {% for item in top_menu.get_items %}
@@ -25,6 +25,7 @@
               {% endfor %}
             </ul>
           {% endif %}
+          {% do action('icl_language_selector') %}
         </div>
       </div>   
     </div>
