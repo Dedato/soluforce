@@ -1,5 +1,38 @@
 <footer class="content-info">
   <div class="container">
-    Copyright {{"now"|date('Y')}}
+    {% if footer_menu.get_items %}
+      <nav id="footer-nav" class="nav row">
+        {% for item in footer_menu.get_items %}
+          <ul class="{{item.post_name}} col-xs-6 col-sm-4 col-md-2">
+            <li class="{{item.classes | join(' ')}}"><a href="{{item.get_link | relative}}" title="{{item.title}}"><strong>{{item.title}}</strong></a></li>
+            {% if item.get_children %}
+              {% for child in item.get_children %}
+                <li class="{{child.classes | join(' ')}}"><a href="{{child.get_link | relative}}" title="{{child.title}}">{{child.title}}</a></li>
+              {% endfor %}
+            {% endif %}
+          </ul>
+        {% endfor %}
+      </nav>
+    {% endif %}
+    <div class="info row">
+      <div class="credits col-xs-6 col-sm-4">
+        <a class="logo" href="{{site.url}}" title="{{site.title}}">
+          <img src="{{theme.uri}}/dist/svg/soluforce_logo.svg" onerror="this.onerror=null; this.src='{{theme.uri}}/dist/images/soluforce_logo.png'" alt="{{site.title}}" width="113" height="20">
+        </a>
+        <p>{{site.title}} &copy; {{"now"|date('Y')}}</p>
+      </div>  
+      <div class="social col-xs-6 col-sm-4">
+        {% if options.social_media %}
+          <ul class="nav navbar-nav">
+            {% for social in options.social_media %}
+              <li class="{{social.social_media_name | sanitize}}"><a href="{{social.social_media_url}}" title="{{social.social_media_name}}" target="_blank"><i class="fa fa-{{social.social_media_icon}}"></i></a></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+      <div class="brand col-xs-6 col-xs-offset-6 col-sm-4 col-sm-offset-0">
+        <a href="http://www.pipelife.com" title="{{ __('Visit PipeLife website', 'soluforce') }}" target="_blank"><span>a</span> <img src="{{theme.uri}}/dist/svg/pipelife_logo.svg" onerror="this.onerror=null; this.src='{{theme.uri}}/dist/images/pipelife_logo.png'" width="80" height="20" alt="PipeLife"> <span>brand</span></a>
+      </div>
+    </div>  
   </div>
 </footer>
