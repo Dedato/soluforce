@@ -1,0 +1,26 @@
+.content_more {
+  margin-top: 1em;
+  display: none;
+}
+.split_more_link {
+  margin: 1em 0;
+  .read-more {
+    cursor:pointer;
+    color: $white;
+    text-decoration: underline;
+    &:after {
+      @include fa-icon();
+      content: $fa-var-angle-down;
+      padding-left: 0.4em;
+    }
+    &.less {
+      &:after {
+        content: $fa-var-angle-up;
+      }
+    }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
