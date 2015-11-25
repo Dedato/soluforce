@@ -15,3 +15,13 @@ figure,
 picture {
   @include img-responsive();
 }
+
+
+// Links
+a {
+  &:hover,
+  &:focus,
+  &.focus {
+    outline: none;
+  } 
+}
