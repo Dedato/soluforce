@@ -18,15 +18,15 @@
 
 // Brand/project name
 .navbar-brand {
+  display: block;
+  float: none;
   padding: 20px 0 18px;
   line-height: 1;
   height: auto;
   transition: all 0.25s ease;
   > img {
-    display: block;
-    max-width: 160px;
-    height: auto;
-    transition: all 0.25s ease;
+    width: 160px;
+    transition: opacity 0.25s ease;
   }
   &:hover,
   &:focus {
@@ -36,14 +36,10 @@
     }
   }
   @media (min-width: $screen-sm) {
-    > img {
-      max-width: 225px;
-    }
+    > img {width: 225px; }
   }
   @media (min-width: $screen-md) {
-    > img {
-      max-width: 263px;
-    }
+    > img {width: 263px; }
   }
   .mini & {
     padding: 10px 0;
@@ -86,6 +82,17 @@
       margin-top: 6px;
     }
   }
+  .mini & {
+    top: $navbar-sub-height;
+    margin: ($grid-gutter-width / 2) ($grid-gutter-width / 2) 0 0;
+    .icon-bar {
+      width: 34px;
+      height: 2px;
+    }
+    .icon-bar + .icon-bar {
+      margin-top: 6px;
+    }
+  }
 }
 
 
@@ -113,6 +120,7 @@
   }
   // Top navigation
   #top-nav {
+    background: $brand-primary-dark;
     background:rgba(0, 0, 0, 0.5);
     .navbar-nav {
       > li {
@@ -163,6 +171,10 @@
           }
         }
       }
+    }  
+    // WPML Default Language Switcher
+    #lang_sel {
+      float: right;
     }
   }
   // Main navigation
@@ -184,11 +196,20 @@
           }
         }
       }
+      // Minified header
       .mini & {
         padding: 0;
         > li {
+          margin-right: 0;
           > a {
             font-size: 1em;
+          }
+          &.menu-item-has-children {
+            &.active {
+              > a {
+                padding-bottom: $navbar-padding-vertical;
+              }
+            }
           }
         }  
       }
