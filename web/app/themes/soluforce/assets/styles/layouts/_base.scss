@@ -1,8 +1,23 @@
 .wrap {
-  padding-top: $header-height;
-  .has-sub & {padding-top: $header-height + $navbar-sub-height; }
+  padding-top: $header-height-sm;
+  .has-sub & {padding-top: $header-height-sm; }
   .mini & { padding-top: $header-height-min; }
-  @media (max-width: $grid-float-breakpoint) {
+  .mini.has-sub & {padding-top: $header-height-min; }
+  @media (min-width: $screen-sm) {
+    padding-top: $header-height;
     .has-sub & {padding-top: $header-height; }
+    .mini & {padding-top: $header-height-min; }
+    .mini.has-sub & {padding-top: $header-height-min; }
   }
+  @media (min-width: $grid-float-breakpoint) {
+    padding-top: $header-height;
+    .has-sub & {padding-top: $header-height + $navbar-sub-height; }
+    .mini & { padding-top: $header-height-min; }
+    .mini.has-sub & {padding-top: $header-height-min + $navbar-sub-height; }
+  }
+}
+
+.main {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
 }
