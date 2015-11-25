@@ -29,6 +29,8 @@ class StarterSite extends TimberSite {
 		$context['site']            = $this;
 		$context['display_sidebar'] = Setup\display_sidebar();
 		$context['sidebar_primary'] = Timber::get_widgets('sidebar-primary');
+		$context['options']         = get_fields('option');
+		$context['split_content']   = TimberHelper::function_wrapper('Dedato\SoluForce\Extras\split_more_content');
 		return $context;
 	}
 	
