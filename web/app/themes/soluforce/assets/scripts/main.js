@@ -53,6 +53,15 @@
             });
           });
         });
+        // Read More Link
+        var $more_link = $('.split_more_link a.read-more');
+        var more_text  = $more_link.html();
+        $more_link.click(function(e){
+          var less_text  = $(this).data('text-less');
+          $(this).parents().find('.content_more').slideToggle('fast');
+          $(this).html( $(this).html() === more_text ? less_text : more_text);
+          $(this).toggleClass('less');
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
