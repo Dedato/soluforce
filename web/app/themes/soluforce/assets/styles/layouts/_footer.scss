@@ -33,7 +33,12 @@
       padding-top: 15px;
       > li {
         display: inline-block;
-        &:not(:last-child) {margin-right: 10px; }
+        &:not(:last-child) {
+          margin-right: 5px;
+          @media (min-width: 480px) {
+            margin-right: 10px;
+          }
+        }
         > a {
           font-size: 2.1em;
           padding: 0;
@@ -50,9 +55,9 @@
   .brand {
     a {
       display: inline-block;
-      padding: 0 0 10px;
+      padding: 0 0 5px;
       @media (min-width: $screen-sm-min) {
-        padding: 20px 0 10px;
+        padding: 20px 0 5px;
       }
     }
     span,
