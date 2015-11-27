@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d89f1fcf5a222b14f0a86c43256c83b5",
-    "content-hash": "7025ce63722d42a09f5faa9e11c49cb0",
+    "hash": "6a3b68a3c787a3d84bbda711951f4b5e",
+    "content-hash": "83f5c001e85031966626940a4a223e4d",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -576,6 +576,26 @@
             "time": "2015-10-28 18:53:35"
         },
         {
+            "name": "wpackagist-plugin/ajax-thumbnail-rebuild",
+            "version": "1.12",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/ajax-thumbnail-rebuild/",
+                "reference": "tags/1.12"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/ajax-thumbnail-rebuild.1.12.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/ajax-thumbnail-rebuild/"
+        },
+        {
             "name": "wpackagist-plugin/restricted-site-access",
             "version": "5.1",
             "source": {
@@ -814,16 +834,16 @@
         },
         {
             "name": "yoast/wordpress-seo",
-            "version": "3.0.3",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Yoast/wordpress-seo.git",
-                "reference": "d5f2f3890571d19178c8aec5739cf589bb7ff4eb"
+                "reference": "2031419475b21f553ce10b68a8950ae446a4ad3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Yoast/wordpress-seo/zipball/d5f2f3890571d19178c8aec5739cf589bb7ff4eb",
-                "reference": "d5f2f3890571d19178c8aec5739cf589bb7ff4eb",
+                "url": "https://api.github.com/repos/Yoast/wordpress-seo/zipball/2031419475b21f553ce10b68a8950ae446a4ad3d",
+                "reference": "2031419475b21f553ce10b68a8950ae446a4ad3d",
                 "shasum": ""
             },
             "require": {
@@ -834,6 +854,7 @@
                 "yoast/license-manager": "^1.2"
             },
             "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
                 "yoast/yoastcs": "dev-master"
             },
             "type": "wordpress-plugin",
@@ -862,7 +883,7 @@
                 "seo",
                 "wordpress"
             ],
-            "time": "2015-11-19 15:39:15"
+            "time": "2015-11-25 12:01:04"
         }
     ],
     "packages-dev": [],
