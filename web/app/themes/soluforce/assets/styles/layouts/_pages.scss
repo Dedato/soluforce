@@ -20,6 +20,7 @@
     }
     &:hover,
     &:focus {
+      color: $brand-secondary;
       text-decoration: none;
     }
   }
