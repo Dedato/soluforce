@@ -24,6 +24,7 @@ function body_class($classes) {
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
 
+
 /**
  * Clean up the_excerpt()
  */
@@ -57,6 +58,19 @@ if ( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Social Media',
 		'parent_slug'	=> 'soluforce-options',
 	));
+}
+
+
+/**
+ * Add extra filetypes to be allowed for upload
+ */
+ 
+add_filter('upload_mimes', __NAMESPACE__ . '\\custom_upload_mimes'); 
+function custom_upload_mimes($existing_mimes = array()) {
+	// add the file extension to the array
+	$existing_mimes['svg'] = 'image/svg+xml';
+	$existing_mimes['svgz'] = 'image/svg+xml';
+	return $existing_mimes;
 }
 
 
