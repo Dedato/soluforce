@@ -38,15 +38,16 @@
 		ul {
 			visibility: hidden;
 			position: absolute;
-			height: 0;
 			top: $navbar-sub-height;
 			left: 0;
-			z-index: $zindex-navbar;
+      height: 0;
+      z-index: $zindex-navbar + 1;
+      li {background:$brand-primary; }
 			a {
   			background:rgba(0, 0, 0, 0.5);
   			font-size: $font-size-small;
 				color: $navbar-default-link-color;
-				padding: $navbar-sub-padding-vertical ($navbar-padding-horizontal + ($grid-gutter-width / 2)) $navbar-sub-padding-vertical $navbar-padding-horizontal;
+				padding: $navbar-padding-vertical ($navbar-padding-horizontal + ($grid-gutter-width / 2)) $navbar-padding-vertical $navbar-padding-horizontal;
         line-height: 10px;
         &:hover,
         &:focus {
@@ -109,6 +110,7 @@
 
 	img.iclflag {
 		width: 18px;
+		max-width: 18px;
 		height: 12px;
 		position: relative;
 		top: 5px;
