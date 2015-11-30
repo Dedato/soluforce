@@ -1,0 +1,78 @@
+.flex_block {
+  padding: 2.22em 0 ($grid-gutter-width / 2);
+  &.benefits_block {
+    background: $brand-primary-light;
+    color: $gray-base;
+    .benefits {
+      margin-top: $grid-gutter-width;
+      .benefit {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 50px;
+        margin-bottom: $grid-gutter-width;
+        @media (max-width: $screen-xs) {
+          padding-bottom: 60px;
+        }
+        .benefit-icon {
+          @include intrinsic-pad-ratio(1, 1, '.stretch', 768, 1, 1, $brand-primary);
+          .stretch.loading {
+            .fa {
+              left: 50%;
+              margin-left: -0.5em;
+            }
+          }
+          img.stretch {
+            background: $brand-primary;
+            transition: background .25s ease;
+          }
+        }
+        .overlay {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: $grid-gutter-width / 2;
+          right: $grid-gutter-width / 2;
+          height: 50px;
+          z-index: 20;
+          overflow: hidden;
+          transition: all .25s ease;
+          @media (max-width: $screen-xs) {
+            height: 60px;
+          }
+        }
+        .entry-content {
+          background: $white;
+          padding: $grid-gutter-width / 2;
+          height: 100%;
+          h5 {
+            margin: 0;
+            font-weight: 400;
+          }
+          .desc {
+            margin: 1em 0 0;
+            padding-left: 1em;
+            font-size: $font-size-small;
+            @media (max-width: $screen-xs) {
+              display: none;
+            }
+          }
+        }
+        &:hover,
+        &:focus,
+        &.hover {
+          cursor: pointer;
+          .benefit-icon {
+            img.stretch {
+              background: darken($brand-primary, 10%);
+            }  
+          }
+          .overlay {
+            height: 100%;
+            @media (min-width: $screen-md-min) {height: 50%; }
+            @media (max-width: $screen-xs) {height: 60px; }
+          }
+        }
+      }
+    }
+  }
+}  
