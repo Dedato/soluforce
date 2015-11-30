@@ -57,6 +57,7 @@ $font-size-h6:                    ceil(($font-size-base * 0.85)); // ~12px
 $line-height-base:                1.428571429; // 20/14
 $line-height-computed:            floor(($font-size-base * $line-height-base)); // ~20px
 
+$headings-font-weight:            700;
 
 //== Components
 $border-radius-base:              0;
