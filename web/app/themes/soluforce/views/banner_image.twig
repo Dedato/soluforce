@@ -1,5 +1,10 @@
-<h1 class="light">{{banner.acf_banner_title}}</h1>
-{% if banner.acf_banner_link %}<a href="{{banner.acf_banner_link}}" target="_blank">{% endif %}
-  <img src="{{TimberImage(banner.acf_banner_image).src|resize(360) }}" />
-{% if banner.acf_banner_link %}</a>{% endif %}
-<p class="caption">{{TimberImage(banner.acf_banner_image).caption}}</p>
+<div class="banner__image">
+  <h1 class="light">{{banner.acf_banner_title}}</h1>
+  {% if banner.acf_banner_link %}<a href="{{banner.acf_banner_link}}" target="_blank">{% endif %}  
+    {% set image = TimberImage(banner.acf_banner_image).src %}
+    {{ function('create_resp_picture', 0, [], false, [ 
+      [image|resize(360), image|resize(720), 768], 
+      [image|resize(738), image|resize(1476)] ], image|resize(360), banner.acf_banner_image.alt) }}
+  {% if banner.acf_banner_link %}</a>{% endif %}
+  <p class="caption">{{TimberImage(banner.acf_banner_image).caption}}</p>
+</div>  
