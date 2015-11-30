@@ -2,7 +2,7 @@
  * Responsive intrinsic ratios
  * http://www.fredparke.com/blog/css-padding-trick-responsive-intrinsic-ratios
  */
-@mixin intrinsic-pad-ratio($w: 4, $h: 3, $selector: picture, $breakpoint: 768, $w-br: 4, $h-br: 3) {
+@mixin intrinsic-pad-ratio($w: 4, $h: 3, $selector: picture, $breakpoint: 768, $w-br: 4, $h-br: 3, $bg: inherit) {
   position: relative;
   padding: 0 0 percentage($h/$w) 0;
   height: 0;
@@ -15,7 +15,7 @@
     height: 100%;
     z-index: 0;
     &.loading {
-      background: lighten($brand-primary, 10%);
+      background: $bg;
       color: $white;
       .fa {
         position: absolute;
