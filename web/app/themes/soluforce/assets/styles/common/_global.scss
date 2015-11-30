@@ -7,6 +7,10 @@ h5, .h5,
 h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5em;
+  &.light {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+  }
 }
 
 // Images
@@ -14,6 +18,22 @@ img,
 figure,
 picture {
   @include img-responsive();
+}
+
+/*
+ * Let's target IE to respect aspect ratios and sizes for img tags containing SVG files
+ * [1] IE9
+ * [2] IE10+
+ */
+// 1
+img[src*=".svg"] {
+  width: 360px\9; 
+}
+// 2
+@media screen and (min-width:0\0) {
+  img[src*=".svg"] {
+    width: 360px; 
+  }
 }
 
 
