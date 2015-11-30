@@ -1,0 +1,26 @@
+{% block benefits %}
+  <div class="container">
+    <h1>{{section.acf_block_title}}</h1>
+    {{section.acf_block_content}}
+    {% if benefits %}
+      <div class="benefits row">
+        {% for benefit in benefits %}
+          <article class="benefit col-xs-6 col-sm-4">
+            <div class="benefit-icon">
+              <div class="stretch loading">
+                <i class="fa fa-circle-o-notch fa-spin"></i>
+              </div>
+              <img class="stretch" src="{{TimberImage(benefit.acf_benefit_illustration).src}}" alt="{{TimberImage(benefit.acf_benefit_illustration).alt}}" />
+            </div>
+            <div class="overlay">
+              <div class="entry-content">
+                <h5><span class="index">{{loop.index}}.</span> {{benefit.post_title}}</h5>
+                <div class="desc">{{benefit.post_content|wpautop}}</div>
+              </div>
+            </div>  
+          </article>
+        {% endfor %}  
+      </div>  
+    {% endif %}
+  </div>  
+{% endblock %}
