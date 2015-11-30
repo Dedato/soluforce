@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a3b68a3c787a3d84bbda711951f4b5e",
-    "content-hash": "83f5c001e85031966626940a4a223e4d",
+    "hash": "480373de3632ae0735c9a4eba88dc9af",
+    "content-hash": "e43c38185950652a19757f7e2fefe964",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -617,15 +617,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-retina-2x",
-            "version": "3.5.4",
+            "version": "4.0.2",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/wp-retina-2x/",
-                "reference": "tags/3.5.4"
+                "reference": "tags/4.0.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-retina-2x.3.5.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-retina-2x.4.0.2.zip",
                 "reference": null,
                 "shasum": null
             },
