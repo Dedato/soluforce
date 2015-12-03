@@ -104,7 +104,8 @@ var cssTasks = function(filename) {
       browsers: [
         'last 2 versions',
         'android 4',
-        'opera 12'
+        'opera 12',
+        'ie >= 9'
       ]
     })
     .pipe(minifyCss, {
