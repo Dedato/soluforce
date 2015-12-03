@@ -62,6 +62,21 @@
           $(this).html( $(this).html() === more_text ? less_text : more_text);
           $(this).toggleClass('less');
         });
+        // Hover touch effects
+        if (Modernizr.touch) {
+          $('.touch_effect').click(function(e){
+            if (!$(this).hasClass('hover')) {
+              $(this).addClass('hover');
+            }
+          });
+        } else {
+          $('.touch_effect').mouseenter(function(){
+            $(this).addClass('hover');
+          })
+          .mouseleave(function(){
+            $(this).removeClass('hover');
+          });
+        }
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
