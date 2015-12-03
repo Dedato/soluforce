@@ -19,7 +19,7 @@
       bottom: 0;
       width: 100%;
       padding: ($grid-gutter-width / 2) 0;
-      text-shadow:0.03em 0.03em 0.06em rgba(0, 0, 0, 0.25);
+      text-shadow: 0.03em 0.03em 0.06em rgba(0, 0, 0, 0.25);
       @include background-opacity($brand-primary, 0.75);
       h1 {
         font-family: $font-family-sans-serif-light;
@@ -148,7 +148,7 @@
 @media (min-width: $container-lg) {
   .carousel {
     .dots-nav {
-      padding-left: calc( ((#{$container-lg} / 12 * 4) + #{$grid-gutter-width / 2}) + ((100vw - #{$container-lg}) / 2));
+      padding-left: calc( ((#{$container-lg} / 12 * 4) + 10px) + ((100vw - #{$container-lg}) / 2));
     }
   }
 }
