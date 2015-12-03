@@ -21,6 +21,7 @@ var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 var svgmin       = require('gulp-svgmin');
 var svg2png      = require('gulp-svg2png');
+var bless        = require('gulp-bless');
 
 
 // See https://github.com/austinpray/asset-builder
@@ -64,7 +65,9 @@ var enabled = {
   // Fail due to JSHint warnings only when `--production`
   failJSHint: argv.production,
   // Strip debug statments from javascript when `--production`
-  stripJSDebug: argv.production
+  stripJSDebug: argv.production,
+  // Split minified css when '--production'
+  splitStyles: argv.production
 };
 
 // Path to the compiled assets manifest in the dist directory
@@ -188,6 +191,15 @@ gulp.task('styles', ['wiredep'], function() {
     .pipe(writeToManifest('styles'));
 });
 
+
+// ### Bless
+// CSS post-processor which splits CSS files suitably for Internet Explorer < 10. Bless + Gulp = gulp-bless.
+gulp.task('bless', function() {  
+	return gulp.src(path.dist + 'styles/*.css')
+  .pipe(bless())
+  .pipe(gulp.dest(path.dist + 'styles'));
+});
+
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
@@ -267,7 +279,7 @@ gulp.task('clean', require('del').bind(null, [path.dist]));
 // See: http://www.browsersync.io
 gulp.task('watch', function() {
   browserSync.init({
-    files: ['{lib,templates}/**/*.php', '*.php'],
+    files: ['{lib,templates,views}/**/*.{php,twig}', '*.php'],
     proxy: config.devUrl,
     snippetOptions: {
       whitelist: ['/wp-admin/admin-ajax.php'],
@@ -275,6 +287,7 @@ gulp.task('watch', function() {
     }
   });
   gulp.watch([path.source + 'styles/**/*'], ['styles']);
+  gulp.watch([path.source + 'styles/**/*'], ['bless']);
   gulp.watch([path.source + 'scripts/**/*'], ['jshint', 'scripts']);
   gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
   gulp.watch([path.source + 'images/**/*'], ['images']);
@@ -287,6 +300,7 @@ gulp.task('watch', function() {
 // Generally you should be running `gulp` instead of `gulp build`.
 gulp.task('build', function(callback) {
   runSequence('styles',
+              'bless',
               'scripts',
               ['fonts', 'images', 'svg'],
               callback);
