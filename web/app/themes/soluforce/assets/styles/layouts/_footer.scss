@@ -2,8 +2,7 @@
   font-size: 0.75em;
   padding: 20px 0 0 0;
   @include gradient-horizontal-three-colors(rgba(0,0,0,0.5), rgba(0,0,0,0.25), 50%, rgba(0,0,0,0.5));
-  a {color: $white; }
-  .nav {
+  #footer-nav {
     ul {
       list-style: none;
       margin-bottom: $grid-gutter-width;
@@ -11,8 +10,7 @@
         > a {
           color: $white;
           transition: all .25s ease;
-          &:hover,
-          &:focus {
+          &:hover {
             color: $brand-secondary;
           }
         }
@@ -43,9 +41,9 @@
           font-size: 2.1em;
           padding: 0;
           transition: all .25s ease;
-          &:hover,
-          &:focus {
-            background: none;
+          color: $white;
+          &:hover {
+            background: transparent;
             color: $brand-secondary;
           }
         }
@@ -54,15 +52,16 @@
   }
   .brand {
     a {
+      color: $white;
       display: inline-block;
       padding: 0 0 5px;
+      span,
+      img {float: left; }
+      span {line-height: 20px; }
+      img {padding: 0 5px; }
       @media (min-width: $screen-sm-min) {
         padding: 20px 0 5px;
       }
     }
-    span,
-    img {float: left; }
-    span {line-height:20px; }
-    img {padding: 0 5px; }
   }
 }
