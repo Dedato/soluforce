@@ -2,6 +2,7 @@
   padding: 2.22em 0 ($grid-gutter-width / 2);
 }
 
+// Benefits
 .benefits_block {
   background: $brand-primary-light;
   color: $gray-base;
@@ -79,6 +80,58 @@
       .benefits__benefit {
         &.hover {
           .benefit__info {height: 50%; }
+        }
+      }
+    }
+  }
+}
+
+// Cases
+.cases_block {
+  .cases__row {
+    margin-top: $grid-gutter-width;
+    .cases__case {
+      color: $gray-base;
+      margin-bottom: $grid-gutter-width;
+      .case__image {
+        @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%));
+        .stretch.loading {
+          .fa {
+            font-size: 1em;
+            left: 50%;
+            margin-left: -0.5em;
+          }
+        }
+      }
+      .case__info {
+        display: block;
+        position: absolute;
+        z-index: 20;
+        bottom: 0;
+        left: $grid-gutter-width / 2;
+        right: $grid-gutter-width / 2;
+        min-height: 90px;
+        @include background-opacity($brand-secondary, 0.8);
+        transition: all .25s ease;
+        .entry-content {
+          height: 100%;
+          padding: 10px $grid-gutter-width / 2;
+          h4 {font-weight: 400; }
+          .solutions {
+            margin: 0;
+            font-size: $font-size-small;
+          }
+        }
+      }
+      a {
+        .case__info {
+          h4 {color: $gray-base; }
+        }
+        &:hover,
+        &:focus {
+          .case__info {
+            h4 {color: $gray-dark; }
+          }
         }
       }
     }
