@@ -81,8 +81,8 @@ function split_more_content() {
   global $post;
   if( strpos( $post->post_content, '<!--more-->' ) ) {
     $content = preg_split('/<span id="more-\d+"><\/span>/i', get_the_content('more'));
-    $ret     = '<div class="content_excerpt">'. array_shift($content). '</div>';
-    if (!empty($content)) $ret .= '<div class="content_more">'. implode($content). '</div>';
+    $ret     = '<div class="content_excerpt"><p>'. array_shift($content). '</p></div>';
+    if (!empty($content)) $ret .= '<div class="content_more"><p>'. implode($content). '</p></div>';
     $ret .= '<div class="split_more_link"><a class="read-more" title="'. __('Read more', 'soluforce') .'" data-text-less="'. __('Read less', 'soluforce') .'">'. __('Read more', 'soluforce') .'</a></div>';
     return apply_filters('the_content', $ret);
   } else {
