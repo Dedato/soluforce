@@ -8,6 +8,11 @@
     cursor:pointer;
     color: $white;
     text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: $brand-secondary;
+      text-decoration: none;
+    }
     &:after {
       @include fa-icon();
       content: $fa-var-angle-down;
@@ -17,11 +22,6 @@
       &:after {
         content: $fa-var-angle-up;
       }
-    }
-    &:hover,
-    &:focus {
-      color: $brand-secondary;
-      text-decoration: none;
     }
   }
 }

@@ -1,17 +1,17 @@
-<header class="banner navbar navbar-default navbar-fixed-top" role="banner">
-  <nav id="top-nav">
+<header class="banner navbar navbar-default navbar-fixed-top">
+  <nav id="top_nav">
     <div class="container">
       <div class="row">
         <div class="search col-xs-5 col-sm-8">          
-          <ul class="nav navbar-right navbar-nav sub-nav">
-            <form role="search" method="get" class="search-form__top-nav" action="{{site.url}}/">
+          <div class="nav navbar-right navbar-nav sub-nav">
+            <form method="get" class="search-form__top-nav" action="{{site.url}}/">
             	<label>
             		<span class="screen-reader-text">{{ __('Search for', 'soluforce') }}</span>
             		<input type="search" class="search-field" placeholder="{{ __('Search', 'soluforce') }}" value="{{function.get_search_query}}" name="s" title="{{ __('Search for', 'soluforce') }}" />
             	</label>
             	<button type="submit" class="search-submit toggle-search"><i class="fa fa-search"></i></button>
             </form>
-          </ul>
+          </div>
         </div>
         <div class="service col-xs-7 col-sm-4">
           {% if top_menu.get_items %}
@@ -20,7 +20,7 @@
                 {% if 'pipelife' in item.custom._menu_item_classes %}
                   <li class="{{item.classes | join(' ')}}"><a class="brand" href="{{item.get_link}}" title="{{ __('Visit PipeLife website', 'soluforce') }}" target="_blank"><img src="{{theme.uri}}/dist/svg/pipelife_logo.svg" onerror="this.onerror=null; this.src='{{theme.uri}}/dist/images/pipelife_logo.png'" alt="{{item.title}}"></a></li>
                 {% else %}
-                  <li class="{{item.classes | join(' ')}}"><a href="{{item.get_link | relative}}" title="{{item.title}}" target="{{item.target}}">{{item.title}}</a></li>
+                  <li class="{{item.classes | join(' ')}}"><a href="{{item.get_link | relative}}" title="{{item.title}}">{{item.title}}</a></li>
                 {% endif %}
               {% endfor %}
             </ul>
@@ -47,7 +47,7 @@
         <nav id="main-nav" class="col-sm-12 col-md-9 col-lg-8 collapse navbar-collapse">
           <ul class="nav navbar-nav">
           {% for item in main_menu.get_items %}
-            <li class="{{item.classes | join(' ')}}"><a href="{{item.get_link | relative}}" title="{{item.title}}" target="{{item.target}}">{{item.title}}</a></li>
+            <li class="{{item.classes | join(' ')}}"><a href="{{item.get_link | relative}}" title="{{item.title}}">{{item.title}}</a></li>
           {% endfor %}
           </ul> 
         </nav>

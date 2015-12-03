@@ -6,9 +6,11 @@
       <div class="cases row">
         {% for case in cases %}
           <article class="case col-xs-12 col-sm-4">
-            <div class="entry-image">
-              <img src="{{TimberImage(case.acf_case_image).src}}" alt="{{TimberImage(case.acf_case_image).alt}}" />
-            </div>
+            {% if case.acf_case_image %}
+              <div class="entry-image">
+                <img src="{{TimberImage(case.acf_case_image).src}}" alt="{{TimberImage(case.acf_case_image).alt}}" />
+              </div>
+            {% endif %}  
             <div class="overlay">
               <div class="entry-content">
                 <h5>{{case.post_title}}</h5>

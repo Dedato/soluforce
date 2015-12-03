@@ -5,7 +5,7 @@
     <div class="entry-content col-xs-12{% if post.get_field('acf_banner') %} col-sm-8{% else %} col-sm-12{% endif %}">
       {% block content %}
         <h1>{{post.title}}</h1>
-        {{ split_content }}
+        {{split_content}}
       {% endblock %}
     </div>
     {% if post.get_field('acf_banner') %}

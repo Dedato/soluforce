@@ -1,5 +1,4 @@
 @import "common/_variables";
-@import "common/_mixins";
 
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
@@ -30,20 +29,21 @@
 // endbower
 
 @import "common/_global";
+@import "common/_mixins";
+@import "components/_grid";
 @import "components/_banners";
+@import "components/_navbars";
+@import "components/_language-selector";
 @import "components/_buttons";
 @import "components/_carousels";
 @import "components/_comments";
 @import "components/_forms";
-@import "components/_grid";
-@import "components/_language-selector";
-@import "components/_navbars";
 @import "components/_wp-classes";
 @import "layouts/_base";
 @import "layouts/_header";
-@import "layouts/_home";
+@import "layouts/_pages";
+@import "layouts/_blocks";
+@import "layouts/_posts";
 @import "layouts/_sidebar";
 @import "layouts/_footer";
-@import "layouts/_pages";
-@import "layouts/_posts";
 @import "layouts/_tinymce";
