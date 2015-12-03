@@ -119,9 +119,8 @@
     }
   }
   // Top navigation
-  #top-nav {
-    background: $brand-primary-dark;
-    background:rgba(0, 0, 0, 0.5);
+  #top_nav {
+    @include background-opacity($gray-base, 0.5);
     .navbar-nav {
       > li {
         float: left;
@@ -143,6 +142,26 @@
               max-height: 20px;
               width: auto;
               transition: all 0.25s ease;
+            }
+            /*
+             * Let's target IE to respect aspect ratios and sizes for img tags containing SVG files
+             *
+             * [1] IE9
+             * [2] IE10+
+             */
+            /* 1 */
+            .lt-ie9 & {
+              img[src*=".svg"] {
+                height: 20px;
+                width: 81px;
+              }
+            }
+            /* 2 */
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+              img[src*=".svg"] {
+                height: 20px;
+                width: 81px; 
+              }
             }
             &:hover,
             &:focus {
