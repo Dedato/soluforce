@@ -9,7 +9,7 @@
   "dependencies": {
     "bootstrap-sass": "3.3.5",
     "isotope": "~2.2.2",
-    "font-awesome": "fontawesome#~4.4.0",
+    "font-awesome": "~4.5.0",
     "respimage": "~1.4.2",
     "lazysizes": "~1.3.1",
     "owl.carousel": "~2.0.0-beta.3"
@@ -65,5 +65,8 @@
         "./respimage.js"
       ]
     }
+  },
+  "resolutions": {
+    "font-awesome": "~4.5.0"
   }
 }
