@@ -11,12 +11,12 @@
         {% if slide.acf_slide_image %}
           {% set image = TimberImage(slide.acf_slide_image).src %}
           {{ function('create_resp_picture', loop.index0, ['stretch'], true, [ 
-            [image|resize(2560, 960), image|resize(2560, 960)|retina(2), 1920], 
-            [image|resize(1920, 720), image|resize(1920, 720)|retina(2), 1680], 
-            [image|resize(1680, 630), image|resize(1680, 630)|retina(2), 1280], 
-            [image|resize(1280, 480), image|resize(1280, 480)|retina(2), 1024], 
-            [image|resize(1024, 384), image|resize(1024, 384)|retina(2), 768], 
-            [image|resize(768, 576), image|resize(768, 576)|retina(2)] ], image|resize(1280, 480), slide.acf_slide_image.alt) }} 
+            [image|resize(2560, 960), image|resize(5120, 1920), 1920], 
+            [image|resize(1920, 720), image|resize(3840, 1440), 1680], 
+            [image|resize(1680, 630), image|resize(3360, 1260), 1280], 
+            [image|resize(1280, 480), image|resize(3360, 960), 1024], 
+            [image|resize(1024, 384), image|resize(2048, 768), 768], 
+            [image|resize(768, 576), image|resize(1536, 1152)] ], image|resize(1280, 480), slide.acf_slide_image.alt) }} 
         {% endif %}
         <div class="container">
           <div class="carousel-caption row">
@@ -26,7 +26,7 @@
               <a class="btn btn-default btn-outline" href="{{slide.acf_slide_page_link}}">{{slide.acf_slide_call_2_action}} <i class="fa fa-angle-right"></i></a>
             </div>  
           </div>  
-        </div>    
+        </div>
       </div>
     {% endfor %}      
   </div>     
