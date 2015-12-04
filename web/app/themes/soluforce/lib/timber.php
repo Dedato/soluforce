@@ -15,6 +15,7 @@ if ( ! class_exists( 'Timber' ) ) {
 Timber::$dirname = array('views');
 
 
+/* Add gloabl context to wordpress site */
 class StarterSite extends TimberSite {
   
   function __construct() {
@@ -36,3 +37,15 @@ class StarterSite extends TimberSite {
 	
 }
 new StarterSite();
+
+
+/* Get connected solutions in cases */ 
+function get_case_solutions($ids) {
+  $args = array(
+    'post_type'       => 'solution',
+    'post__in'		    => $ids,
+    'posts_per_page'	=> -1
+  );
+  $query = Timber::get_posts($args);
+  return $query;
+}
