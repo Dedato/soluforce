@@ -16,6 +16,7 @@ if( have_rows('acf_content_blocks') ):
       $args = array(
         'post_type'       => 'benefit',
         'post__in'		    => $ids,
+        'orderby'         => 'post__in',
         'posts_per_page'	=> -1
       );
       $data['benefits'] = Timber::get_posts($args);
@@ -25,6 +26,7 @@ if( have_rows('acf_content_blocks') ):
       $args = array(
         'post_type'       => 'case',
         'post__in'		    => $ids,
+        'orderby'         => 'post__in',
         'posts_per_page'	=> -1
       );
     	$data['cases'] = Timber::get_posts($args);
