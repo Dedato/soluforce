@@ -5,8 +5,8 @@
     {% if cases %}
       <div class="cases__row row">
         {% for case in cases %}
-          <article class="{{case.post_title|sanitize}} cases__case col-xs-12 col-sm-4">
-            <a href="{{case.link|relative}}" title="{{case.post_title}}">
+          <article class="{{case.post_title|sanitize}} cases__case touch_effect col-xs-12 col-sm-4">
+            <a class="touch_effect" href="{{case.link|relative}}" title="{{case.post_title}}">
               <div class="case__image">
                 <div class="stretch loading">
                   <i class="fa fa-circle-o-notch fa-spin"></i>
@@ -18,15 +18,20 @@
                     [image|resize(738, 553), image|resize(1476, 1107)] ], image|resize(360, 270), TimberImage(case.acf_case_image).alt) }}
                 {% endif %}  
               </div>
-              <div class="case__info">
-                <div class="entry-content">
-                  <h4>{{case.post_title}}</h4>
-                  {% if case.solutions %}
-                    <div class="solutions">{{ __('In', 'soluforce') }}: {{case.solutions|join(', ')}}</div>
-                  {% endif %}  
-                </div>
-              </div>
             </a>  
+            <div class="case__info">
+              <div class="entry-content">
+                <h4><a href="{{case.link|relative}}" title="{{case.post_title}}">{{case.post_title}}</a></h4>
+                {% if case.get_field('acf_case_solutions') %}
+                  {% set solutions = fn('get_case_solutions', case.get_field('acf_case_solutions')) %}
+                  <div class="solutions">{{ __('In', 'soluforce') }}: 
+                    {% for solution in solutions %}
+                      <a href="{{solution.get_link}}" title="{{solution.post_title}}">{{solution.post_name}}</a>
+                    {% endfor %}  
+                  </div>
+                {% endif %}  
+              </div>
+            </div>           
           </article>
         {% endfor %}
       </div>  
