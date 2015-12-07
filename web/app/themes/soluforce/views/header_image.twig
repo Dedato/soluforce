@@ -1,0 +1,17 @@
+{% block header_image %}
+<div class="header_image">
+  <div class="stretch loading">
+    <div class="container">
+      <i class="fa fa-circle-o-notch fa-spin"></i>
+    </div>  
+  </div>
+  {% set image = TimberImage(header_img).src %}
+  {{ function('create_resp_picture', 1, ['stretch'], true, [ 
+    [image|resize(2560, 768, 'center'), image|resize(5120, 1536, 'center'), 1920], 
+    [image|resize(1920, 576, 'center'), image|resize(3840, 1152, 'center'), 1680], 
+    [image|resize(1680, 504, 'center'), image|resize(3360, 1260, 'center'), 1280], 
+    [image|resize(1280, 384, 'center'), image|resize(3360, 960, 'center'), 1024], 
+    [image|resize(1024, 307, 'center'), image|resize(2048, 614, 'center'), 768], 
+    [image|resize(768, 432, 'center'), image|resize(1536, 864, 'center')] ], image|resize(1280, 384, 'center'), TimberImage(header_img).alt) }}
+</div>
+{% endblock %}
