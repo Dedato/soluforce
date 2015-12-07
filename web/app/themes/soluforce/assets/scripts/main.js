@@ -77,6 +77,7 @@
             $(this).removeClass('hover');
           });
         }
+        $.StickyFooter();
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -107,6 +108,39 @@
     'about_us': {
       init: function() {
         // JavaScript to be fired on the about us page
+      }
+    }
+  };
+  
+  // Sticky Footer
+  $.StickyFooter = function() {
+    StickyFooter.init();
+  };
+  var StickyFooter = {
+    init: function() {
+      $footer = $('.content-info');
+      var fh = $footer.outerHeight();
+      var ft = ($(window).scrollTop() + $(window).height() - fh)+"px";
+      StickyFooter.sticky($footer, fh, ft);
+      $(window).resize(function() {
+        StickyFooter.sticky($footer, fh, ft);
+      });
+      $(window).scroll(function() {
+        StickyFooter.sticky($footer, fh, ft);
+      });
+    },
+    sticky : function($footer, fh, ft) {
+      if ( ($(document.body).height() + fh) < $(window).height()) {
+        $footer.css({
+          position: "absolute",
+          top:      ft,
+          left:     0,
+          right:    0
+        });
+      } else {
+        $footer.css({
+          position: "static"
+        });
       }
     }
   };
