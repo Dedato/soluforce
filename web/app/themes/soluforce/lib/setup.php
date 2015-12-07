@@ -86,8 +86,13 @@ function display_sidebar() {
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
+    is_page(),
     is_front_page(),
-    is_page_template('template-custom.php'),
+    is_page_template('template-home.php'),
+    is_page_template('template-installation.php'),
+    is_page_template('template-products.php'),
+    is_page_template('template-solutions.php'),
+    is_singular(array('benefit', 'case', 'installation', 'product', 'solution'))
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
