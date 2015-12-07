@@ -1,5 +1,19 @@
 {% extends "base.twig" %}
 
 {% block main %}
-  {{post.content}}
+  <section class="page row">
+    <div class="entry-content col-xs-12{% if sidebar_img %} col-sm-8{% else %} col-sm-12 no-sidebar{% endif %}">
+      {% block content %}
+        <h1>{{post.title}}</h1>
+        <div class="columns">{{post.content}}</div>
+      {% endblock %}
+    </div>
+    {% if sidebar_img %}
+      <aside class="sidebar col-xs-12 col-sm-4">
+        {% block sidebar %}
+          {% include 'sidebar_image.twig' %}
+        {% endblock %}
+      </aside>
+    {% endif %}
+  </section>
 {% endblock %}
