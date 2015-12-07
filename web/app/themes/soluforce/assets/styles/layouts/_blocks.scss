@@ -15,12 +15,6 @@
       padding-bottom: 60px;
       .benefit__icon {
         @include intrinsic-pad-ratio(1, 1, '.stretch', 768, 1, 1, $brand-primary);
-        .stretch.loading {
-          .fa {
-            left: 50%;
-            margin-left: -0.5em;
-          }
-        }
         img.stretch {
           background: $brand-primary;
           transition: background .25s ease;
@@ -99,11 +93,7 @@
       .case__image {
         @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%));
         .stretch.loading {
-          .fa {
-            font-size: 1em;
-            left: 50%;
-            margin-left: -0.5em;
-          }
+          .fa {font-size: 1em; }
         }
       }
       .case__info {        
