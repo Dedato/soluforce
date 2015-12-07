@@ -13,6 +13,10 @@ h6, .h6 {
   }
 }
 
+p {
+  margin: 0 0 1.25em;
+}
+
 // Images
 img,
 figure,
@@ -29,3 +33,6 @@ a {
     outline: none;
   } 
 }
+
+// Selections
+::selection {background:$brand-secondary; color:$brand-primary; text-shadow:none; }
