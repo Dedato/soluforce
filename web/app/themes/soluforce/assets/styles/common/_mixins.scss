@@ -19,10 +19,11 @@
       color: $white;
       .fa {
         position: absolute;
-        left: inherit;
+        left: 50%;
         top: 50%;
         height: 1em;
         margin-top: -0.5em;
+        margin-left: -0.5em;
         font-size: 2em;
       }
     }
