@@ -21,7 +21,7 @@
       {% endif %}
       {% if header_img %}
         {% block header_image %}
-          {% include 'header_image.twig' %}
+          {% include 'header-image.twig' %}
         {% endblock %}
       {% endif %}      
       <div class="container">
@@ -44,13 +44,14 @@
         {% for section in sections %}
       	  <section class="{{section.acf_fc_layout}} flex_block">
             {% if section.acf_fc_layout == 'benefits_block' %}
-              {% include 'block_benefits.twig' %}
+              {% include 'block-benefits.twig' %}
             {% elseif section.acf_fc_layout == 'cases_block' %}
-              {% include 'block_cases.twig' %}
+              {% include 'block-cases.twig' %}
             {% endif %}
       	  </section>
         {% endfor %}
       {% endif %}
+      <div class="push"></div>
     </div>
 		{% block footer %}
 		  {% include 'footer.twig' %}
