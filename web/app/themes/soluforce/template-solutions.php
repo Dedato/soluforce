@@ -13,4 +13,4 @@ $data['solutions']    = Timber::get_posts(array(
   'nopaging'  => true
 ));
 
-Timber::render('tmpl_solutions.twig', $data);
+Timber::render('tmpl-solutions.twig', $data);
