@@ -1,0 +1,60 @@
+// Cases
+.cases__row {
+  .cases__case {      
+    position: relative;
+    overflow: hidden;
+    margin-bottom: $grid-gutter-width;
+    color: $gray-base;
+    a {color: $gray-base; }
+    .case__image {
+      @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%));
+      .stretch.loading {
+        .fa {font-size: 1em; }
+      }
+    }
+    .case__info {        
+      display: block;
+      position: absolute;
+      z-index: 20;
+      bottom: 0;
+      left: $grid-gutter-width / 2;
+      right: $grid-gutter-width / 2;
+      height: 40px;
+      overflow: hidden;
+      transition: all .25s ease;
+      @include background-opacity($brand-secondary, 0.8);
+      transition: all .25s ease;
+      @media (min-width: $screen-sm-min) {
+        height: 80px;
+      }
+      @media (min-width: $screen-md-min) {
+        height: 60px;
+      }
+      .entry-content {
+        height: 100%;
+        padding: 10px $grid-gutter-width / 2;
+        h4 {font-weight: 400; }
+        .solutions {
+          margin: 0;
+          font-size: $font-size-small;
+          text-transform: capitalize;
+          display: none;
+        }
+      }
+    }
+    &.hover {
+      .case__info {
+        height: 70px;
+        .entry-content {
+          .solutions {display: block; }
+        }
+        @media (min-width: $screen-sm-min) {
+          height: 110px;
+        }  
+        @media (min-width: $screen-md-min) {
+          height: 90px;
+        }
+      }
+    }
+  }
+}

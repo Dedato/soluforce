@@ -1,0 +1,72 @@
+.benefits__row {
+  margin-top: $grid-gutter-width;
+  .benefits__benefit {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: $grid-gutter-width;
+    padding-bottom: 60px;
+    .benefit__icon {
+      @include intrinsic-pad-ratio(1, 1, '.stretch', 768, 1, 1, $brand-primary);
+      img.stretch {
+        background: $brand-primary;
+        transition: background .25s ease;
+      }
+    }
+    .benefit__info {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: $grid-gutter-width / 2;
+      right: $grid-gutter-width / 2;
+      height: 60px;
+      z-index: 20;
+      overflow: hidden;
+      transition: all .25s ease;
+      .entry-content {
+        background: $white;
+        padding: $grid-gutter-width / 2;
+        height: 100%;
+        h5 {
+          margin: 0;
+          font-weight: 400;
+        }
+        .desc {
+          display: none;
+          margin: 1em 0 0;
+          padding-left: 1em;
+          font-size: $font-size-small;
+        }
+      }
+    }
+    &.hover {
+      cursor: pointer;
+      .benefit__icon {
+        img.stretch {
+          background: darken($brand-primary, 10%);
+        }
+      }
+      .benefit__info {height: 60px; }
+    }
+  }
+  @media (min-width: $screen-xs-min) {
+    .benefits__benefit {
+      padding-bottom: 50px;
+      .benefit__info {
+        height: 50px;
+        .entry-content {
+          .desc {display: inline-block; }
+        }
+      }
+      &.hover {
+        .benefit__info {height: 100%; }
+      }
+    }
+  }
+  @media (min-width: $screen-md-min) {
+    .benefits__benefit {
+      &.hover {
+        .benefit__info {height: 50%; }
+      }
+    }
+  }
+}
