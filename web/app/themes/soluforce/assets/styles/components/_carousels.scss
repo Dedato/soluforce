@@ -5,19 +5,13 @@
   }
   .item {
     position: relative;
-    @include intrinsic-pad-ratio(8, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%));
+    @include intrinsic-pad-ratio(8, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%), $white, 2em, 1em);
     .stretch{
       &.loading {
-        .fa {left: inherit; }
+        @media (min-width: $screen-sm) {
+          .fa {left: inherit; }
+        }  
       }  
-    }
-    @media (min-width: 1680px) {
-      // Stretch image above minimum required ACF width
-      picture {overflow: hidden; }
-      img {
-        width: 100%;
-        height: auto;
-      }
     }
     .carousel-caption {
       position: absolute;
