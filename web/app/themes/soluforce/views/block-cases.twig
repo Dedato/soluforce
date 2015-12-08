@@ -1,0 +1,14 @@
+{% block cases %}
+  <div class="container">
+    <h1 class="light">{{section.acf_block_title}}</h1>
+    {{section.acf_block_content}}
+    {% if cases %}
+      <div class="cases__row row">
+        {% for case in cases %}        
+          {% set grid_sizes = [ [['col-sm-4', 360, 270, 768], ['col-xs-12', 738, 553]], 360, 270 ] %}
+          {% include 'loop-case.twig' %}
+        {% endfor %}
+      </div>  
+    {% endif %}
+  </div>  
+{% endblock %}

@@ -1,0 +1,20 @@
+<div class="banner__image">
+  <h1 class="light">{{banner.acf_banner_title}}</h1>
+  {% if banner.acf_banner_link %}<a href="{{banner.acf_banner_link}}" target="_blank">{% endif %}
+    {% if banner.acf_banner_image %}
+      {% set image = TimberImage(banner.acf_banner_image) %}
+      {% set image_sizes = [] %}    
+      {% for size in grid_sizes[0] %}
+        {% set image_sizes = image_sizes | merge(
+          [{ src1x:       image.src|resize(size[1], size[2]), 
+             src2x:       image.src|resize((size[1] * 2), (size[2] * 2)), 
+             breakpoint:  size[3] 
+          }]
+        ) %}
+      {% endfor %}
+      {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2]) %}
+      {{ function('create_resp_picture_test', 0, [], false, image_sizes, fallback, image.alt) }}
+    {% endif %}
+  {% if banner.acf_banner_link %}</a>{% endif %}
+  <p class="caption">{{TimberImage(banner.acf_banner_image).caption}}</p>
+</div>  

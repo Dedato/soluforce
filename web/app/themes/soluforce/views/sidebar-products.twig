@@ -1,0 +1,9 @@
+{% if solution_products %}
+  <div class="sidebar__products">
+    <h1 class="light">{{ __('Products', 'soluforce') }}</h1>
+    {% for product in solution_products %}
+      {% set grid_sizes = [ [['col-xs-12', 360, 0, 768], ['col-xs-12', 738, 0]], 360, 0 ] %}
+      {% include 'loop-product.twig' %} 
+    {% endfor %}
+  </div>
+{% endif %}

@@ -1,0 +1,30 @@
+<article class="{{product.title | sanitize}} products__{{product.post_type}}">
+  {% if product.acf_product_image %}
+    {% set image = TimberImage(product.acf_product_image) %}
+    {% set ratio = (image.sizes.medium.height/image.sizes.medium.width * 100) %}
+    {% set image_sizes = [] %}    
+    {% for size in grid_sizes[0] %}
+      {% set image_sizes = image_sizes | merge(
+        [{ src1x:       image.src|resize(size[1], size[2]), 
+           src2x:       image.src|resize((size[1] * 2), (size[2] * 2)), 
+           breakpoint:  size[3] 
+        }]
+      ) %}
+    {% endfor %}
+    {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2]) %}
+    <div class="product__image" style="padding-bottom:{{ratio}}%;">
+      <a href="{{product.link|relative}}" title="{{product.title}}">
+        <div class="stretch loading">
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
+        {{ function('create_resp_picture_test', 1, ['stretch'], true, image_sizes, fallback, image.alt) }}
+      </a>    
+    </div>
+  {% endif %}    
+  <div class="product__info">
+    <div class="entry-content">
+      <h5 class="light {{product.terms[0].slug}}"><a href="{{product.link|relative}}" title="{{product.title}}">{{product.title}}</a></h5>
+      <div class="desc">{{product.get_preview(20, false, '')}}</div>
+    </div>
+  </div>
+</article>

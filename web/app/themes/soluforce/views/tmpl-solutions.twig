@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  <section class="page row">
+    <div class="entry-content col-xs-12 no-sidebar">
+      {% block content %}
+        <h1>{{post.title}}</h1>
+        <div class="columns">{{post.content}}</div>
+      {% endblock %}
+    </div>
+  </section>
+  {% if solutions %}
+    <section class="solutions__row row">
+      {% block solutions %}
+        {% for solution in solutions %}
+          {% set grid_sizes = [ [['col-sm-6', 555, 416, 768], ['col-xs-12', 738, 553]], 555, 416 ] %}
+          {% include 'loop-solution.twig' %} 
+        {% endfor %}
+      {% endblock %}
+    </section>
+  {% endif %}  
+{% endblock %}

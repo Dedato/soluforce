@@ -1,0 +1,31 @@
+<article class="{{solution.post_title | sanitize}} solutions__solution touch_effect {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
+  <div class="solution__container">
+    <a href="{{solution.link|relative}}" title="{{solution.title}}">
+      <div class="solution__image">
+        <div class="stretch loading">
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
+        {% if solution.acf_solution_image %}
+          {% set image = TimberImage(solution.acf_solution_image) %}
+          {% set image_sizes = [] %}    
+          {% for size in grid_sizes[0] %}
+            {% set image_sizes = image_sizes | merge(
+              [{ src1x:       image.src|resize(size[1], size[2]), 
+                 src2x:       image.src|resize((size[1] * 2), (size[2] * 2)), 
+                 breakpoint:  size[3] 
+              }]
+            ) %}
+          {% endfor %}
+          {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2]) %}
+          {{ function('create_resp_picture_test', loop.index, ['stretch'], true, image_sizes, fallback, image.alt) }}
+        {% endif %} 
+      </div>
+    </a>
+    <div class="solution__info">
+      <div class="entry-title">
+        <h2><a href="{{solution.link|relative}}" title="{{solution.title}}">{{solution.post_name}}</a></h2> 
+      </div>
+    </div>
+  </div>
+  <div class="entry-content">{{solution.get_preview(40, false, 'Read More <i class="fa fa-angle-right"></i>')}}</div>
+</article>

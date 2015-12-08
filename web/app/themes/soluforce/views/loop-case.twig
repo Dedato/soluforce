@@ -1,0 +1,36 @@
+<article class="{{case.post_title|sanitize}} cases__case touch_effect {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
+  <a class="touch_effect" href="{{case.link|relative}}" title="{{case.post_title}}">
+    <div class="case__image">
+      <div class="stretch loading">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+      </div>
+      {% if case.acf_case_image %}
+        {% set image = TimberImage(case.acf_case_image) %}
+        {% set image_sizes = [] %}    
+        {% for size in grid_sizes[0] %}
+          {% set image_sizes = image_sizes | merge(
+            [{ src1x:       image.src|resize(size[1], size[2]), 
+               src2x:       image.src|resize((size[1] * 2), (size[2] * 2)), 
+               breakpoint:  size[3] 
+            }]
+          ) %}
+        {% endfor %}
+        {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2]) %}
+        {{ function('create_resp_picture_test', loop.index, ['stretch'], true, image_sizes, fallback, image.alt) }}
+      {% endif %}
+    </div>
+  </a>  
+  <div class="case__info">
+    <div class="entry-content">
+      <h4><a href="{{case.link|relative}}" title="{{case.post_title}}">{{case.post_title}}</a></h4>
+      {% if case.get_field('acf_case_solutions') %}
+        {% set solutions = fn('get_case_solutions', case.get_field('acf_case_solutions')) %}
+        <div class="solutions">{{ __('In', 'soluforce') }}: 
+          {% for solution in solutions %}
+            <a href="{{solution.get_link}}" title="{{solution.post_title}}">{{solution.post_name}}</a>
+          {% endfor %}  
+        </div>
+      {% endif %}  
+    </div>
+  </div>           
+</article>

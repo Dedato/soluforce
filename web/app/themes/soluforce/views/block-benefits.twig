@@ -1,0 +1,14 @@
+{% block benefits %}
+  <div class="container">
+    <h1>{{section.acf_block_title}}</h1>
+    {{section.acf_block_content}}
+    {% if benefits %}
+      <div class="benefits__row row">
+        {% for benefit in benefits %}          
+          {% set grid_sizes = [ [['col-sm-4', 360, 360, 768], ['col-xs-6', 346, 346]], 360, 360 ] %}
+          {% include 'loop-benefit.twig' %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
