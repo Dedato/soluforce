@@ -1,3 +1,11 @@
+// Sticky Footer
+html {height: 100%; }
+body {
+	:not(.wp-editor-container) & {
+    height: 100%;
+  }
+}
+
 // Typo
 h1, .h1,
 h2, .h2,
@@ -10,11 +18,31 @@ h6, .h6 {
   &.light {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
+    letter-spacing: 0.05em;
   }
 }
 
 p {
   margin: 0 0 1.25em;
+}
+
+
+// Lists
+ul,
+ol {
+  padding: 0;
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-bottom: 1em;
+}
+
+// Blockquote
+blockquote {
+  border-left: none;
+  @include background-opacity($brand-primary-light, 0.4);
+  font-size: 1em;
+  margin: 0 0 1em;
+  padding: 10px ($grid-gutter-width / 2);
 }
 
 // Images
@@ -32,6 +60,38 @@ a {
   &.focus {
     outline: none;
   } 
+}
+
+// Colors
+.soluforce-light {
+  color: $brand-light;
+  a {
+    color: $brand-light;
+    &:hover,
+    &:focus {
+      color: darken($brand-light, 10%);
+    }
+  }
+}
+.soluforce-classic {
+  color: $brand-classic;
+  a {
+    color: $brand-classic;
+    &:hover,
+    &:focus {
+      color: darken($brand-classic, 10%);
+    }
+  }
+}
+.soluforce-heavy {
+  color: $brand-heavy;
+  a {
+    color: $brand-heavy;
+    &:hover,
+    &:focus {
+      color: darken($brand-heavy, 10%);
+    }
+  }
 }
 
 // Selections
