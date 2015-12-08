@@ -19,3 +19,8 @@
     .service {width: 100%; }
   }
 }
+
+.header_image { 
+  position: relative;
+  @include intrinsic-pad-ratio(10, 3, '.stretch', 768, 16, 9, lighten($brand-primary, 10%), $white, 2em, 1em);
+}
