@@ -14,7 +14,7 @@
 
   // Use this variable to set up the common and page specific functions. If you
   // rename this variable, you will also need to rename the namespace below.
-  var Sage = {
+  var SoluForce = {
     // All pages
     'common': {
       init: function() {
@@ -77,10 +77,15 @@
             $(this).removeClass('hover');
           });
         }
-        $.StickyFooter();
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
+        $(window).resize(function(){
+			    var footerHeight    = $('.content-info').outerHeight();
+			    var stickFooterPush = $('.push').height(footerHeight);
+    			$('.wrap').css({'margin-bottom':'-' + footerHeight + 'px'});
+		    });
+    		$(window).resize();
       }
     },
     // Home page
@@ -111,46 +116,13 @@
       }
     }
   };
-  
-  // Sticky Footer
-  $.StickyFooter = function() {
-    StickyFooter.init();
-  };
-  var StickyFooter = {
-    init: function() {
-      $footer = $('.content-info');
-      var fh = $footer.outerHeight();
-      var ft = ($(window).scrollTop() + $(window).height() - fh)+"px";
-      StickyFooter.sticky($footer, fh, ft);
-      $(window).resize(function() {
-        StickyFooter.sticky($footer, fh, ft);
-      });
-      $(window).scroll(function() {
-        StickyFooter.sticky($footer, fh, ft);
-      });
-    },
-    sticky : function($footer, fh, ft) {
-      if ( ($(document.body).height() + fh) < $(window).height()) {
-        $footer.css({
-          position: "absolute",
-          top:      ft,
-          left:     0,
-          right:    0
-        });
-      } else {
-        $footer.css({
-          position: "static"
-        });
-      }
-    }
-  };
 
   // The routing fires all common scripts, followed by the page specific scripts.
   // Add additional events for more control over timing e.g. a finalize event
   var UTIL = {
     fire: function(func, funcname, args) {
       var fire;
-      var namespace = Sage;
+      var namespace = SoluForce;
       funcname = (funcname === undefined) ? 'init' : funcname;
       fire = func !== '';
       fire = fire && namespace[func];
