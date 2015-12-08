@@ -59,6 +59,34 @@ function product_updated_messages( $messages ) {
 	return $messages;
 }
 
+/* Taxonomies */
+function product_type_taxonomy() {
+  $labels = array(
+    'name'              => __('Product types'),
+    'singular_name'     => __('Product type'),
+    'search_items'      => __('Search product types'),
+    'all_items'         => __('All product types'),
+    'parent_item'       => __('Parent product type'),
+    'parent_item_colon' => __('Parent product type:'),
+    'edit_item'         => __('Edit product type'),
+    'update_item'       => __('Update product type'),
+    'add_new_item'      => __('New product type'),
+    'new_item_name'     => __('New product type'),
+    'menu_name'         => __('Product types')
+  );
+  $args = array(
+    'labels'       		   => $labels,
+    'public'             => true,
+    'show_ui'      		   => true,
+    'show_in_nav_menus'	 => true,
+    'show_admin_column'	 => true,
+    'hierarchical' 		   => true,
+    'query_var'    		   => true,
+    'rewrite'      		   => array('slug' => 'product') // Should be same as post type slug
+  );
+  register_taxonomy('product-type', 'product', $args);
+}
+
 /* Posts per page */
 function product_ppp_archive( $query ) {
 	if( $query->is_main_query() && $query->is_post_type_archive('product') ) {
@@ -68,4 +96,5 @@ function product_ppp_archive( $query ) {
 
 add_action( 'init', __NAMESPACE__ . '\\product_init' );
 add_filter( 'post_updated_messages', __NAMESPACE__ . '\\product_updated_messages' );
+add_action( 'init', __NAMESPACE__ . '\\product_type_taxonomy' );
 add_filter( 'pre_get_posts', __NAMESPACE__ . '\\product_ppp_archive' );
