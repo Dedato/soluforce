@@ -13,7 +13,8 @@
  * 5) $img_fb: the fallback image. default: null
  * 6) $img_alt: The alternative text for the image. default: null
  *
-**/ 
+**/
+
 function create_resp_picture($pic_nr = 0, $pic_classes = [], $lazy = false, $img_sizes = [], $img_fb = "", $img_alt = "") {
   ob_start(); ?>
   <picture class="img-<?php echo $pic_nr; if ($pic_classes) echo ' ' . implode(' ', $pic_classes); ?>">
@@ -26,6 +27,48 @@ function create_resp_picture($pic_nr = 0, $pic_classes = [], $lazy = false, $img
   		// Set breakpoint to null if there is none
   		if (isset($img_size[2])) {
     		$breakpoint = $img_size[2];
+    	} else {
+      	$breakpoint = null;
+    	} ?>
+  		<source <?php 
+  	  if ($lazy && !$pic_nr == 0) {
+  		  echo 'data-srcset="'; 
+  		} else { 
+  			echo 'srcset="'; 
+  	  } 
+      echo $srcset .' 1x';
+      if ($srcset_2x) { 
+        echo ', '. $srcset_2x .' 2x"'; 
+      } else {
+        echo '"';
+      } 
+      if ($lazy && !$pic_nr == 0) {
+        echo ' srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="';
+      }      
+      if ($breakpoint) echo ' media="(min-width:'. ($breakpoint + 1) .'px)"'; ?> /> 
+    <?php endforeach; ?>
+		<!--[if IE 9]></video><![endif]-->
+		<!--[if gte IE 9]><!-->
+		  <img<?php if ($lazy && !$pic_nr == 0) echo ' class="lazyload"'; ?> src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="<?php echo $img_alt; ?>" />
+		<!--<![endif]-->
+		<?php if ($img_fb) echo '<!--[if lt IE 9]><img src="'. $img_fb .'" alt="'. $img_alt .'" /><![endif]-->'; ?>
+	</picture>
+  <?php return ob_get_clean();
+}
+
+
+function create_resp_picture_test($pic_nr = 0, $pic_classes = [], $lazy = false, $img_sizes = [], $img_fb = "", $img_alt = "") {
+  ob_start(); ?>
+  <picture class="img-<?php echo $pic_nr; if ($pic_classes) echo ' ' . implode(' ', $pic_classes); ?>">
+		<!--[if IE 9]><video style="display: none;"><![endif]-->
+		<?php 
+    // Loop through all the image sizes with their matched breakpoints
+    foreach( $img_sizes as $img_size ):      
+  		$srcset     = $img_size['src1x'];
+  		$srcset_2x  = $img_size['src2x'];
+  		// Set breakpoint to null if there is none
+  		if (isset($img_size['breakpoint'])) {
+    		$breakpoint = $img_size['breakpoint'];
     	} else {
       	$breakpoint = null;
     	} ?>
