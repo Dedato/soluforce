@@ -1,16 +1,3 @@
-.header_image { 
-  position: relative;
-  @include intrinsic-pad-ratio(10, 3, '.stretch', 768, 16, 9, lighten($brand-primary, 10%));
-  @media (min-width: 1000px) {
-    // Stretch image above minimum required ACF width
-    picture {overflow: hidden; }
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-}
-
 .main {
   .entry-content {
     h2, .h2,
@@ -55,16 +42,6 @@
           column-gap: $grid-gutter-width;
         }
       }  
-    }
-  }  
-  .sidebar {
-    .sidebar__image {
-      margin-top: $font-size-h1 * 1.5;
-      .caption {
-        margin: 0.5em 0 0 0;
-        font-size: $font-size-small;
-        font-style: italic;
-      }
     }
   }
 }
