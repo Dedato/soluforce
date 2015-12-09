@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  <article class="post-type-{{post.post_type}} row">
+    <section class="entry-content col-xs-12 col-sm-8">
+      {% block content %}
+        <h1>{{post.title}}</h1>
+        <div class="columns">{{post.content}}</div>
+      {% endblock %}
+    </section>
+    <aside class="sidebar col-xs-12 col-sm-4">
+      {% block sidebar %}
+      
+      {% endblock %}
+    </aside>
+  </article>
+{% endblock %}
