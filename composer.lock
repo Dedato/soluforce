@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "571bab892639f3b16cec4bde1333d97e",
-    "content-hash": "911d78a5ee876ec0448bd74c3704d5b5",
+    "hash": "732845321a6418b5c05350baf4c8bed7",
+    "content-hash": "2a2ccf2bc7e2a6ae2feedf0d7d74b2f2",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -231,16 +231,16 @@
         },
         {
             "name": "jarednova/timber",
-            "version": "0.22.2",
+            "version": "0.22.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jarednova/timber.git",
-                "reference": "1c011649eaabc93c064c95d4e77475a948508d3c"
+                "reference": "3ca6875a9b46e8e9931990229ef049d3de19383a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jarednova/timber/zipball/1c011649eaabc93c064c95d4e77475a948508d3c",
-                "reference": "1c011649eaabc93c064c95d4e77475a948508d3c",
+                "url": "https://api.github.com/repos/jarednova/timber/zipball/3ca6875a9b46e8e9931990229ef049d3de19383a",
+                "reference": "3ca6875a9b46e8e9931990229ef049d3de19383a",
                 "shasum": ""
             },
             "require": {
@@ -283,20 +283,20 @@
                 "timber",
                 "twig"
             ],
-            "time": "2015-11-24 20:28:26"
+            "time": "2015-12-08 20:31:53"
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.3.1",
+            "version": "4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "cfcf25eb42baeb7316a61c7a64e9a1ab3e291f2f"
+                "reference": "ad70e5cf518b697eed94f558ca6c88e5cc87e65b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/cfcf25eb42baeb7316a61c7a64e9a1ab3e291f2f",
-                "reference": "cfcf25eb42baeb7316a61c7a64e9a1ab3e291f2f",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/ad70e5cf518b697eed94f558ca6c88e5cc87e65b",
+                "reference": "ad70e5cf518b697eed94f558ca6c88e5cc87e65b",
                 "shasum": ""
             },
             "require": {
@@ -320,7 +320,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2015-09-15 15:01:23"
+            "time": "2015-12-08 23:46:14"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -617,15 +617,15 @@
         },
         {
             "name": "wpackagist-plugin/wp-retina-2x",
-            "version": "4.0.3",
+            "version": "4.4.0",
             "source": {
                 "type": "svn",
                 "url": "http://plugins.svn.wordpress.org/wp-retina-2x/",
-                "reference": "tags/4.0.3"
+                "reference": "tags/4.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-retina-2x.4.0.3.zip",
+                "url": "https://downloads.wordpress.org/plugin/wp-retina-2x.4.4.0.zip",
                 "reference": null,
                 "shasum": null
             },
