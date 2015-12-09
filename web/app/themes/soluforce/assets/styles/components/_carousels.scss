@@ -9,7 +9,10 @@
     .stretch{
       &.loading {
         @media (min-width: $screen-sm) {
-          .fa {left: inherit; }
+          .fa {
+            left: inherit;
+            margin-left: $grid-gutter-width / 2;
+          }
         }  
       }  
     }
