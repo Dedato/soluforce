@@ -21,7 +21,7 @@
       {% block sidebar %}
         {% include 'sidebar-products.twig' %}
         {% if post.acf_solution_data_sheet %}
-          <a class="btn btn-default btn-outline" href="{{post.acf_solution_data_sheet.url}}"><i class="fa fa-download"></i> {{ __('Download data sheet', 'soluforce') }}</a>
+          <a class="data-sheet btn btn-default btn-outline btn-block" href="{{post.acf_solution_data_sheet.url}}"><i class="fa fa-download"></i> {{ __('Download data sheet', 'soluforce') }}</a>
         {% endif %}
       {% endblock %}
     </aside>
