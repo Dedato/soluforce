@@ -1,3 +1,18 @@
 {% block sidebar %}
-  {{sidebar_primary}}
+
+  {% if post.post_type == 'page' %}
+    {% if sidebar_img %}
+      {% set grid_sizes = [ [['col-sm-4', 360, 0, '', 768], ['col-xs-12', 738, 0, '']], 360, 0, ''] %}
+      {% include 'sidebar-image.twig' %}
+    {% endif %}  
+  {% elseif post.post_type == 'solution' %}
+    {% include 'sidebar-products.twig' %}
+    {% include 'sidebar-downloads.twig' %}
+  {% elseif post.post_type == 'case' %}
+    {% include 'sidebar-solutions.twig' %}
+    {% include 'sidebar-downloads.twig' %}
+  {% else %}  
+    {{sidebar_primary}}
+  {% endif %}
+  
 {% endblock %}

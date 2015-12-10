@@ -16,11 +16,27 @@
     <div class="wrap" role="document">
       {% if carousel %}
         {% block carousel %}
+          {% set grid_sizes = [[
+            ['', 2560, 960, 'center', 1920], 
+            ['', 1920, 720, 'center', 1680], 
+            ['', 1680, 630, 'center', 1280], 
+            ['', 1280, 480, 'center', 1024], 
+            ['', 1024, 384, 'center', 768], 
+            ['', 768, 576, 'center']
+          ], 1280, 480, 'center'] %}
           {% include 'carousel.twig' %}
         {% endblock %}
       {% endif %}
       {% if header_img %}
         {% block header_image %}
+          {% set grid_sizes = [[
+            ['', 2560, 768, 'center', 1920], 
+            ['', 1920, 576, 'center', 1680], 
+            ['', 1680, 504, 'center', 1280], 
+            ['', 1280, 384, 'center', 1024], 
+            ['', 1024, 307, 'center', 768], 
+            ['', 768, 432, 'center']
+          ], 1280, 384, 'center'] %}
           {% include 'header-image.twig' %}
         {% endblock %}
       {% endif %}      

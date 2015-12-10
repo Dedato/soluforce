@@ -5,13 +5,33 @@
       <i class="fa fa-circle-o-notch fa-spin"></i>
     </div>  
   </div>
-  {% set image = TimberImage(header_img).src %}
-  {{ function('create_resp_picture', 1, ['stretch'], true, [ 
-    [image|resize(2560, 768, 'center'), image|resize(5120, 1536, 'center'), 1920], 
-    [image|resize(1920, 576, 'center'), image|resize(3840, 1152, 'center'), 1680], 
-    [image|resize(1680, 504, 'center'), image|resize(3360, 1260, 'center'), 1280], 
-    [image|resize(1280, 384, 'center'), image|resize(3360, 960, 'center'), 1024], 
-    [image|resize(1024, 307, 'center'), image|resize(2048, 614, 'center'), 768], 
-    [image|resize(768, 432, 'center'), image|resize(1536, 864, 'center')] ], image|resize(1280, 384, 'center'), TimberImage(header_img).alt) }}
+  {% set image = TimberImage(header_img) %}
+  {% set image_sizes = [] %}    
+  {% for size in grid_sizes[0] %}
+    {% set image_sizes = image_sizes|merge(
+      [{ src1x:       image.src|resize(size[1], size[2], size[3]), 
+         src2x:       image.src|resize((size[1] * 2), (size[2] * 2), size[3]), 
+         breakpoint:  size[4] 
+      }]
+    ) %}
+  {% endfor %}
+  {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2], grid_sizes[3]) %}
+  {{ function('create_resp_picture', 1, ['stretch'], true, image_sizes, fallback, image.alt) }}
+  
+  {% if header_title %}
+    <div class="case__info">
+      <div class="entry-content container">
+        <h1>{{post.title}}</h1>
+        {% if post.get_field('acf_case_solutions') %}
+          {% set solutions = fn('get_case_solutions', post.get_field('acf_case_solutions')) %}
+          <div class="solutions">{{ __('In', 'soluforce') }}: 
+            {% for solution in solutions %}
+              <a href="{{solution.get_link}}" title="{{solution.post_title}}">{{solution.post_name}}</a>
+            {% endfor %}  
+          </div>
+        {% endif %}  
+      </div>
+    </div>
+  {% endif %}
 </div>
 {% endblock %}

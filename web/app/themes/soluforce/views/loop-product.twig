@@ -1,23 +1,23 @@
-<article class="{{product.title | sanitize}} products__{{product.post_type}}">
+<article class="{{product.title | sanitize}} products__{{product.post_type}} {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
   {% if product.acf_product_image %}
     {% set image = TimberImage(product.acf_product_image) %}
     {% set ratio = (image.sizes.medium.height/image.sizes.medium.width * 100) %}
     {% set image_sizes = [] %}    
     {% for size in grid_sizes[0] %}
-      {% set image_sizes = image_sizes | merge(
-        [{ src1x:       image.src|resize(size[1], size[2]), 
-           src2x:       image.src|resize((size[1] * 2), (size[2] * 2)), 
-           breakpoint:  size[3] 
+      {% set image_sizes = image_sizes|merge(
+        [{ src1x:       image.src|resize(size[1], size[2], size[3]), 
+           src2x:       image.src|resize((size[1] * 2), (size[2] * 2), size[3]), 
+           breakpoint:  size[4] 
         }]
       ) %}
     {% endfor %}
-    {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2]) %}
+    {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2], grid_sizes[3]) %}
     <div class="product__image" style="padding-bottom:{{ratio}}%;">
       <a href="{{product.link|relative}}" title="{{product.title}}">
         <div class="stretch loading">
           <i class="fa fa-circle-o-notch fa-spin"></i>
         </div>
-        {{ function('create_resp_picture_test', 1, ['stretch'], true, image_sizes, fallback, image.alt) }}
+        {{ function('create_resp_picture', 1, ['stretch'], true, image_sizes, fallback, image.alt) }}
       </a>    
     </div>
   {% endif %}    

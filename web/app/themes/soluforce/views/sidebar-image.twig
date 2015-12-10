@@ -1,9 +1,17 @@
 <div class="sidebar__image">
-  {% set image = TimberImage(sidebar_img).src %}
-  {{ function('create_resp_picture', 1, ['stretch'], true, [ 
-    [image|resize(360), image|resize(720), 768], 
-    [image|resize(738), image|resize(1476)] ], image|resize(360), TimberImage(sidebar_img).alt) }}
-  {% if TimberImage(sidebar_img).caption %}  
-    <p class="caption">{{TimberImage(sidebar_img).caption}}</p>
+  {% set image = TimberImage(sidebar_img) %}
+  {% set image_sizes = [] %}    
+  {% for size in grid_sizes[0] %}
+    {% set image_sizes = image_sizes|merge(
+      [{ src1x:       image.src|resize(size[1], size[2], size[3]), 
+         src2x:       image.src|resize((size[1] * 2), (size[2] * 2), size[3]), 
+         breakpoint:  size[4] 
+      }]
+    ) %}
+  {% endfor %}
+  {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2], grid_sizes[3]) %}
+  {{ function('create_resp_picture', 1, ['stretch'], true, image_sizes, fallback, image.alt) }}    
+  {% if image.caption %}  
+    <p class="caption">{{image.caption}}</p>
   {% endif %}
 </div>  

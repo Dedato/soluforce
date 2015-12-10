@@ -5,7 +5,7 @@
     {% if cases %}
       <div class="cases__row row">
         {% for case in cases %}        
-          {% set grid_sizes = [ [['col-sm-4', 360, 270, 768], ['col-xs-12', 738, 553]], 360, 270 ] %}
+          {% set grid_sizes = [ [['col-sm-4', 360, 270, 'center', 768], ['col-xs-12', 738, 553, 'center']], 360, 270, 'center' ] %}
           {% include 'loop-case.twig' %}
         {% endfor %}
       </div>  

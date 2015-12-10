@@ -9,14 +9,18 @@
           </div>  
         </div>
         {% if slide.acf_slide_image %}
-          {% set image = TimberImage(slide.acf_slide_image).src %}
-          {{ function('create_resp_picture', loop.index0, ['stretch'], true, [ 
-            [image|resize(2560, 960), image|resize(5120, 1920), 1920], 
-            [image|resize(1920, 720), image|resize(3840, 1440), 1680], 
-            [image|resize(1680, 630), image|resize(3360, 1260), 1280], 
-            [image|resize(1280, 480), image|resize(3360, 960), 1024], 
-            [image|resize(1024, 384), image|resize(2048, 768), 768], 
-            [image|resize(768, 576), image|resize(1536, 1152)] ], image|resize(1280, 480), slide.acf_slide_image.alt) }} 
+          {% set image = TimberImage(slide.acf_slide_image) %}
+          {% set image_sizes = [] %}    
+          {% for size in grid_sizes[0] %}
+            {% set image_sizes = image_sizes|merge(
+              [{ src1x:       image.src|resize(size[1], size[2], size[3]), 
+                 src2x:       image.src|resize((size[1] * 2), (size[2] * 2), size[3]), 
+                 breakpoint:  size[4] 
+              }]
+            ) %}
+          {% endfor %}
+          {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2], grid_sizes[3]) %}
+          {{ function('create_resp_picture', loop.index0, ['stretch'], true, image_sizes, fallback, image.alt) }}
         {% endif %}
         <div class="container">
           <div class="carousel-caption row">

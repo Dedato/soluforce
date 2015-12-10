@@ -1,29 +1,19 @@
 {% extends "base.twig" %}
 
 {% block main %}
-  <article class="post-type-{{post.post_type}} row">
-    <section class="entry-content col-xs-12 col-sm-8">
-      {% block content %}
-        <h1>{{post.title}}</h1>
-        <div class="columns">{{post.content}}</div>
-        {% if solution_cases %}
-          <h2>{{ __('Cases', 'soluforce') }}</h2>
-          <div class="cases__row row">
-            {% for case in solution_cases %}
-              {% set grid_sizes = [ [['col-xs-12', 750, 562]], 750, 562 ] %}
-              {% include 'loop-case.twig' %}
-            {% endfor %}
-          </div>  
-        {% endif %}
-      {% endblock %}
-    </section>
-    <aside class="sidebar col-xs-12 col-sm-4">
-      {% block sidebar %}
-        {% include 'sidebar-products.twig' %}
-        {% if post.acf_solution_data_sheet %}
-          <a class="data-sheet btn btn-default btn-outline btn-block" href="{{post.acf_solution_data_sheet.url}}"><i class="fa fa-download"></i> {{ __('Download data sheet', 'soluforce') }}</a>
-        {% endif %}
-      {% endblock %}
-    </aside>
-  </article>
+  {% block content %}
+    <h1>{{post.title}}</h1>
+    <div class="columns">{{post.content}}</div>
+  {% endblock %} 
+  {% if solution_cases %}
+    {% block cases %}
+      <h2>{{ __('Cases', 'soluforce') }}</h2>
+      <div class="cases__row row">
+        {% for case in solution_cases %}
+          {% set grid_sizes = [ [['col-xs-12', 750, 562, 'center']], 750, 562, 'center' ] %}
+          {% include 'loop-case.twig' %}
+        {% endfor %}
+      </div>
+    {% endblock %}  
+  {% endif %}
 {% endblock %}

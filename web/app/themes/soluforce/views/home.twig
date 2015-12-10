@@ -1,24 +1,24 @@
 {% extends "base.twig" %}
 
 {% block main %}
-  <article class="post-type-{{post.post_type}} row">
-    <section class="entry-content col-xs-12{% if post.get_field('acf_banner') %} col-sm-8{% else %} col-sm-12{% endif %}">
+  <section class="intro row">
+    <article class="entry-content {% if post.get_field('acf_banner') %}has-sidebar{% endif %}">
       {% block content %}
         <h1>{{post.title}}</h1>
         {{split_content}}
       {% endblock %}
-    </section>
+    </article>
     {% if post.get_field('acf_banner') %}
-      <aside class="banner col-xs-12 col-sm-4">
+      <aside class="sidebar">
         {% block banner %}
           {% for banner in post.get_field('acf_banner') %}
             {% if banner.acf_fc_layout == 'acf_image_banner' %}
-              {% set grid_sizes = [ [['col-sm-4', 360, 0, 768], ['col-xs-12', 738]], 360, 0 ] %}
+              {% set grid_sizes = [ [['col-sm-4', 360, 0, '', 768], ['col-xs-12', 738, 0, '']], 360, 0, ''] %}
               {% include 'banner-image.twig' %}
             {% endif %}
           {% endfor %}
         {% endblock %}
       </aside>
     {% endif %}
-  </article> 
+  </section> 
 {% endblock %}
