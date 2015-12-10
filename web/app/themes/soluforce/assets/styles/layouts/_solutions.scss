@@ -1,74 +1,81 @@
+.solutions__solution {      
+  margin-bottom: $grid-gutter-width;
+  color: $gray-base;
+  a {color: $gray-base; }
+  .solution__container {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: $grid-gutter-width / 2;
+    .solution__image {
+      @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%));
+      .stretch.loading {
+        .fa {font-size: 1em; }
+      }
+    }
+    .solution__info {        
+      display: block;
+      position: absolute;
+      z-index: 20;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      overflow: hidden;
+      transition: all .25s ease;
+      @include background-opacity($white, 0.8);
+      transition: all .25s ease;
+      @media (min-width: $screen-sm-min) {
+        height: 80px;
+      }
+      @media (min-width: $screen-md-min) {
+        height: 50px;
+      }
+      .entry-title {
+        height: 100%;
+        padding: 10px $grid-gutter-width / 2;
+        h2 {
+          text-transform: capitalize;
+          font-weight: 400;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }  
+  &.hover {
+    .solution__container {
+      .solution__info {
+        height: 70px;
+        @media (min-width: $screen-sm-min) {
+          height: 100px;
+        }  
+        @media (min-width: $screen-md-min) {
+          height: 70px;
+        }
+      }
+    }
+  }
+  .entry-content {
+    color: $white;
+    .read-more {
+      display: block;
+      margin-top: 1em;
+      color: $white;
+      text-decoration: underline;
+      &:hover,
+      &:focus {
+        color: $brand-secondary;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
 .solutions__row {
   margin-top: $grid-gutter-width;
-  .solutions__solution {      
-    margin-bottom: $grid-gutter-width;
-    color: $gray-base;
-    a {color: $gray-base; }
-    .solution__container {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: $grid-gutter-width / 2;
-      .solution__image {
-        @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, lighten($brand-primary, 10%));
-        .stretch.loading {
-          .fa {font-size: 1em; }
-        }
-      }
-      .solution__info {        
-        display: block;
-        position: absolute;
-        z-index: 20;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 50px;
-        overflow: hidden;
-        transition: all .25s ease;
-        @include background-opacity($white, 0.8);
-        transition: all .25s ease;
-        @media (min-width: $screen-sm-min) {
-          height: 80px;
-        }
-        @media (min-width: $screen-md-min) {
-          height: 50px;
-        }
-        .entry-title {
-          height: 100%;
-          padding: 10px $grid-gutter-width / 2;
-          h2 {
-            text-transform: capitalize;
-            font-weight: 400;
-            margin-bottom: 0;
-          }
-        }
-      }
-    }  
-    &.hover {
-      .solution__container {
-        .solution__info {
-          height: 70px;
-          @media (min-width: $screen-sm-min) {
-            height: 100px;
-          }  
-          @media (min-width: $screen-md-min) {
-            height: 70px;
-          }
-        }
-      }
-    }
-    .entry-content {
-      color: $white;
-      .read-more {
-        display: block;
-        margin-top: 1em;
-        color: $white;
-        text-decoration: underline;
-        &:hover,
-        &:focus {
-          color: $brand-secondary;
-          text-decoration: none;
-        }
-      }
-    }
+} 
+
+.sidebar__solutions {
+  .solutions__solution {
+    .entry-content {display: none; }
   }
 }

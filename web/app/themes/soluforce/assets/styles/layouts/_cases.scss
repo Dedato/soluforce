@@ -1,3 +1,39 @@
+.single-case {
+  .case__info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    min-height: 80px;
+    overflow: hidden;
+    transition: all .25s ease;
+    @include background-opacity($brand-secondary, 0.8);
+    .entry-content {
+      height: 100%;
+      padding: 10px $grid-gutter-width / 2;
+      color: $gray-base;
+      a {color: $gray-base; }
+      h1 {
+        margin-bottom: 0.25em;
+        font-weight: 400;
+      }
+      .solutions {
+        margin: 0;
+        font-size: $font-size-small;
+        text-transform: capitalize;
+        a {
+          color: $gray;
+          &:hover,
+          &:focus {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
 // Cases
 .cases__row {
   .cases__case {      
@@ -39,6 +75,13 @@
           font-size: $font-size-small;
           text-transform: capitalize;
           display: none;
+          a {
+            color: $gray;
+            &:hover,
+            &:focus {
+              color: $white;
+            }
+          }
         }
       }
     }
@@ -46,7 +89,10 @@
       .case__info {
         height: 70px;
         .entry-content {
-          .solutions {display: block; }
+          .solutions {
+            display: block;
+            .single-solution & {display: none; }
+          }
         }
         @media (min-width: $screen-sm-min) {
           height: 110px;

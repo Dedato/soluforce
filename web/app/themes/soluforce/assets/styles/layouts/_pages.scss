@@ -35,13 +35,5 @@
         }
       }
     }
-    &.no-sidebar {
-      .columns {
-        @media (min-width: $screen-sm-min) {
-          column-count: 2;
-          column-gap: $grid-gutter-width;
-        }
-      }  
-    }
   }
 }
