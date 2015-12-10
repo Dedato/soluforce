@@ -1,0 +1,3 @@
+{% if data_sheet %}
+  <a class="data-sheet btn btn-default btn-outline btn-block" href="{{data_sheet.url}}" title="{{ __('Download %s', 'soluforce')|format(data_sheet.title) }}" target="_blank"><i class="fa fa-download"></i> {{ __('Download %s data sheet', 'soluforce')|format(post.post_name) }}</a>
+{% endif %}
