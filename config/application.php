@@ -66,6 +66,8 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 define('WP_DEFAULT_THEME', 'soluforce');
+define('WP_MEMORY_LIMIT', '512M');
+
 
 /**
  * Bootstrap WordPress
