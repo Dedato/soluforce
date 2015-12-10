@@ -1,0 +1,9 @@
+{% if solutions %}
+  <div class="sidebar__solutions">
+    <h1 class="light">{{ __('Solutions', 'soluforce') }}</h1>
+    {% for solution in solutions %}
+      {% set grid_sizes = [ [['', 360, 0, '', 768], ['', 738, 0, '']], 360, 0, '' ] %}
+      {% include 'loop-solution.twig' %} 
+    {% endfor %}
+  </div>
+{% endif %}
