@@ -62,37 +62,5 @@ a {
   } 
 }
 
-// Colors
-.soluforce-light {
-  color: $brand-light;
-  a {
-    color: $brand-light;
-    &:hover,
-    &:focus {
-      color: darken($brand-light, 10%);
-    }
-  }
-}
-.soluforce-classic {
-  color: $brand-classic;
-  a {
-    color: $brand-classic;
-    &:hover,
-    &:focus {
-      color: darken($brand-classic, 10%);
-    }
-  }
-}
-.soluforce-heavy {
-  color: $brand-heavy;
-  a {
-    color: $brand-heavy;
-    &:hover,
-    &:focus {
-      color: darken($brand-heavy, 10%);
-    }
-  }
-}
-
 // Selections
 ::selection {background:$brand-secondary; color:$brand-primary; text-shadow:none; }

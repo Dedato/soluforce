@@ -1,17 +1,63 @@
 .products__product {
   margin-bottom: $grid-gutter-width;
-  background: $white;
   .product__image {
     @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, $white, $brand-primary);
     .stretch.loading {
       .fa {font-size: 1em; }
     }
   }
-  .product__info {        
+  .product__info {
+    background: $white;    
     .entry-content {
       padding: 10px $grid-gutter-width / 2;
       font-size: $font-size-small;
       color: $gray;
+      h5 {
+        color: $brand-primary;
+        a {
+          transition: all .25s ease;
+          color: $brand-primary;
+          &:hover,
+          &:focus {
+            color: darken($brand-primary, 10%);
+          }
+        }
+        // Colors
+        &.soluforce-light {
+          color: $brand-light;
+          a {
+            color: $brand-light;
+            &:hover,
+            &:focus {
+              color: darken($brand-light, 10%);
+            }
+          }
+        }
+        &.soluforce-classic {
+          color: $brand-classic;
+          a {
+            color: $brand-classic;
+            &:hover,
+            &:focus {
+              color: darken($brand-classic, 10%);
+            }
+          }
+        }
+        &.soluforce-heavy {
+          color: $brand-heavy;
+          a {
+            color: $brand-heavy;
+            &:hover,
+            &:focus {
+              color: darken($brand-heavy, 10%);
+            }
+          }
+        }
+      }
     }
   }
+}
+
+.products__row {
+  margin-top: $grid-gutter-width;
 }
