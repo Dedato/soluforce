@@ -63,10 +63,16 @@
           $(this).toggleClass('less');
         });
         // Hover touch effects
-        if (Modernizr.touch) {
-          $('.touch_effect').click(function(e){
-            if (!$(this).hasClass('hover')) {
-              $(this).addClass('hover');
+        if (Modernizr.touchevents) {
+          $('.touch_effect').on('touchstart', function (e) {
+            var link = $(this);
+            if(link.hasClass('hover')) {
+              return true;
+            } else {
+              link.addClass('hover');
+              $(this).closest('.row').find('.touch_effect').not(this).removeClass('hover');
+              e.preventDefault();
+              return false;
             }
           });
         } else {
@@ -110,10 +116,22 @@
         // JavaScript to be fired on the home page, after the init JS
       }
     },
-    // About us page, note the change from about-us to about_us.
-    'about_us': {
+    // Products
+    'page_template_template_products': {
       init: function() {
-        // JavaScript to be fired on the about us page
+        // JavaScript to be fired on the products page
+        $('.products__grid .products__product .product__container').matchHeight({
+          byRow: true
+        });
+        var $grid = $('.products__grid').isotope({
+          layoutMode:   'fitRows',
+          itemSelector: '.products__product'
+        });
+        // filter items on button click
+        $('.filter-button-group').on( 'click', 'button', function() {
+          var filterValue = $(this).attr('data-filter');
+          $grid.isotope({ filter: filterValue });
+        });
       }
     }
   };
