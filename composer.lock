@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "732845321a6418b5c05350baf4c8bed7",
-    "content-hash": "2a2ccf2bc7e2a6ae2feedf0d7d74b2f2",
+    "hash": "f101378cdb9fdd50ca4e60c8fa3a2dbf",
+    "content-hash": "66a8415903bfdea69ba346a88d7c96b2",
     "packages": [
         {
             "name": "advanced-custom-fields/advanced-custom-fields-pro",
@@ -616,26 +616,6 @@
             "homepage": "https://wordpress.org/plugins/restricted-site-access/"
         },
         {
-            "name": "wpackagist-plugin/wp-retina-2x",
-            "version": "4.4.0",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wp-retina-2x/",
-                "reference": "tags/4.4.0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-retina-2x.4.4.0.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-retina-2x/"
-        },
-        {
             "name": "wpml/gravityforms-multilingual",
             "version": "1.3.5",
             "dist": {
@@ -648,7 +628,7 @@
         },
         {
             "name": "wpml/sitepress-multilingual-cms",
-            "version": "3.3.1",
+            "version": "3.3.3",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6088&user_id=11458&subscription_key=$P$Bq3a7UwmN7/eQJJ5GKV8Ek3NCZT..",
@@ -659,7 +639,7 @@
         },
         {
             "name": "wpml/wpml-string-translation",
-            "version": "2.3.2",
+            "version": "2.3.4",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6092&user_id=11458&subscription_key=$P$Bq3a7UwmN7/eQJJ5GKV8Ek3NCZT..",
@@ -670,7 +650,7 @@
         },
         {
             "name": "wpml/wpml-translation-management",
-            "version": "2.1.1",
+            "version": "2.1.3",
             "dist": {
                 "type": "zip",
                 "url": "https://wpml.org/?download=6094&user_id=11458&subscription_key=$P$Bq3a7UwmN7/eQJJ5GKV8Ek3NCZT..",
