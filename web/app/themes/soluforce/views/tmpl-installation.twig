@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  <section class="entry-content">
+    {% block content %}
+      <h1>{{post.title}}</h1>
+      <div class="columns">{{post.content}}</div>
+    {% endblock %}
+  </section>
+  {% if installations %}
+    <section class="installations__row row">
+      {% block installations %}
+        {% for installation in installations %}
+          {% set grid_sizes = [ [['col-sm-4', 360, 270, 'center', 768], ['col-xs-12', 738, 553, 'center']], 360, 270, 'center' ] %}
+          {% include 'loop-installation.twig' %} 
+        {% endfor %}
+      {% endblock %}
+    </section>
+  {% endif %}  
+{% endblock %}

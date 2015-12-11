@@ -1,0 +1,31 @@
+<article class="{{installation.post_title|sanitize}} installations__installation {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
+  <div class="installation__container touch_effect">
+    <a href="{{installation.link|relative}}" title="{{installation.title}}">
+      <div class="installation__image">
+        <div class="stretch loading">
+          <i class="fa fa-circle-o-notch fa-spin"></i>
+        </div>
+        {% if installation.acf_installation_image %}
+          {% set image = TimberImage(installation.acf_installation_image) %}
+          {% set image_sizes = [] %}    
+          {% for size in grid_sizes[0] %}
+            {% set image_sizes = image_sizes|merge(
+              [{ src1x:       image.src|resize(size[1], size[2], size[3]), 
+                 src2x:       image.src|resize((size[1] * 2), (size[2] * 2), size[3]), 
+                 breakpoint:  size[4] 
+              }]
+            ) %}
+          {% endfor %}
+          {% set fallback = image.src|resize(grid_sizes[1], grid_sizes[2], grid_sizes[3]) %}
+          {{ function('create_resp_picture', loop.index, ['stretch'], true, image_sizes, fallback, image.alt) }}
+        {% endif %} 
+      </div>
+    </a>
+    <div class="installation__overlay">
+      <div class="installation__overlay__content">
+        <h2><a href="{{installation.link|relative}}" title="{{installation.title}}">{{installation.post_name}}</a></h2> 
+      </div>
+    </div>
+  </div>
+  <div class="entry-content">{{installation.get_preview(40, false, 'Read More <i class="fa fa-angle-right"></i>')}}</div>
+</article>
