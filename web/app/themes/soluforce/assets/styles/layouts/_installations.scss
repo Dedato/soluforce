@@ -1,0 +1,22 @@
+.installations__installation {
+  @include block-touch-overlay('.touch_effect', lighten($brand-primary, 10%), $white, $white, 0.8, 50px, 80px, 50px, 70px, 100px, 70px);
+  .entry-content {
+    margin-top: $grid-gutter-width / 2;
+    color: $white;
+    .read-more {
+      display: block;
+      margin-top: 1em;
+      color: $white;
+      text-decoration: underline;
+      &:hover,
+      &:focus {
+        color: $brand-secondary;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.installations__row{
+  margin-top: $grid-gutter-width;
+} 
