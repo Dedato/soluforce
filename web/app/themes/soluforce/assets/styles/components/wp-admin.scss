@@ -1,0 +1,225 @@
+@import "../common/_variables";
+@import "../common/_mixins";
+
+@mixin btn() {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  height: auto;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-computed; 
+  font-weight: $btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  color: $btn-default-color;
+  background-color: transparent;
+  border-radius: $border-radius-base;
+  border-width: 0.083em;
+  border-color: $btn-default-color;
+  box-shadow: none;
+  text-shadow: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: all 0.25s ease;
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      outline: none;
+    }
+  }
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $brand-primary;
+    background-color: $btn-default-color;
+    border-color: $btn-default-color;
+    text-decoration: none;
+    text-shadow: none;
+  }
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+  }
+}
+
+
+/* Logo */
+.login {
+  background-color: $brand-primary;
+	color: $text-color;
+	font-family: $font-family-base;
+	font-size: $font-size-base;
+  #login {
+    padding: 8% 15px 0;
+    h1 {
+      text-align: left;
+      margin: 0 0 15px 0;
+      a {
+        height: 47px;
+      	width: 263px;
+        background: url('../svg/soluforce_logo.svg') 0 0 no-repeat;
+      	background-size: 263px 47px;
+        margin: 0;
+        padding: 0;
+      	color: $brand-primary;
+        font-size: $font-size-large;
+        line-height: 1;
+        transition: all 0.25s ease;
+      	&:hover,
+      	&:focus {
+        	color: $gray;
+      	}
+      	.no-svg & {
+        	background: url('../images/soluforce_logo.png') 0 0 no-repeat;
+      	}
+      }
+    }
+    form {
+      background: transparent;
+      margin-top: 10px;
+    	box-shadow: none;
+    	padding: 0 0 15px;
+    	font-weight: 400;
+    }
+    #loginform {
+      label {
+        font-family: $font-family-base;
+        font-size: $font-size-base;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: $white;
+      }
+      .input,
+      input[type="text"] {
+        height: 30px;
+      	margin: 5px 0 15px 0;
+        padding: 3px 5px;
+      	background: $white;
+      	border: none;
+      	border-radius: $border-radius-base;
+      	box-shadow: none;
+      	font-family: $font-family-base;
+      	font-size: $font-size-small;
+      	font-weight: 400;
+      }
+      input[type="checkbox"], 
+      input[type="radio"] {
+        height: 16px;
+        width: 16px;
+      }
+      .button-primary {
+        @include btn();
+        float: right;
+      }
+      
+      .forgetmenot,
+      .submit {
+        height: 30px;
+      }
+      .forgetmenot {
+        label {
+          font-size: $font-size-small * 0.85; 
+          line-height: 1;
+          font-weight: 400;
+        }
+      }  
+    }
+    #nav,
+    #backtoblog {
+      display: inline;
+    	width: 50%;
+    	margin: 0;
+    	padding: 0;
+    	font-size: $font-size-small * 0.85;
+    	text-shadow: none;
+    	a {
+      	color: $brand-secondary;
+      	&:hover,
+      	&:focus {color: $white; }
+    	}
+    }
+    #backtoblog {
+      a {
+        float: right; 
+        text-align: right;
+      }
+    }
+    div.error,
+    #login_error,
+    .message {
+      border: none;
+    	margin: 0 0 20px 0;
+    	background-color: $brand-danger;
+    	color: $white;
+    	border-radius: $border-radius-base;
+      font-family: $font-family-base;
+      font-size: $font-size-small;
+    }
+    div.updated,
+    .message {
+      background-color: $brand-warning;
+      color: $white;
+      border: none;
+    }
+  }
+  &.wp-core-ui {
+    .button,
+    .button-group {
+      &.button-large {
+        @include btn();
+      }
+    } 
+  }
+}
+
+/* Interim */
+.interim-login {
+  #login {margin:0 auto; }
+}  
+/* Mobile */
+.mobile {
+  #login {
+    width: 300px; 
+    padding: 20px 0 0;
+    h1 {
+      a {font-size: 36px; }
+    }
+    .message,
+    .form,
+    #backtoblog, 
+    #nav {margin-left: 0; }
+  }
+  #login_error {margin-left: 0; }
+}
+
+
+/* ==========================================================================
+   Wordpress Dashboard Screen
+   ========================================================================== */
+
+html.wp-toolbar {background-color: $white; }
+.wp-admin {
+  #wpadminbar {
+    background-color: $brand-primary-dark;
+    #wp-admin-bar-site-name {
+      > .ab-item {
+        width: 90px;
+        font-family: $font-family-base;
+        font-size: $font-size-small;
+        background: url('../images/soluforce_logo.png') 7px 8px no-repeat;
+        background-size: 90px auto;
+        text-indent: -9999px;
+        &:before {
+        	content: "";
+      	}
+      }
+    }
+  }
+}
