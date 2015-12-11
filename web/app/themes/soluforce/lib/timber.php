@@ -49,3 +49,19 @@ function get_case_solutions($ids) {
   $query = Timber::get_posts($args);
   return $query;
 }
+
+/* Get connected solutions in products */ 
+function get_product_solutions($id) {
+	$args = array(
+		'post_type'   => 'solution',
+		'meta_query'  => array(
+			array(
+				'key'       => 'acf_solution_products',
+				'value'     => '"' . $id . '"',
+				'compare'   => 'LIKE'
+			)
+		)
+	);
+  $query = Timber::get_posts($args);
+  return $query;
+}
