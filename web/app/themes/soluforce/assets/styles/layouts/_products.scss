@@ -1,15 +1,10 @@
 .products__product {
-  margin-bottom: $grid-gutter-width;
-  .product__image {
-    @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, $white, $brand-primary);
-    .stretch.loading {
-      .fa {font-size: 1em; }
-    }
+  .product__container {
+    background: $white; 
   }
-  .product__info {
-    background: $white;    
-    .entry-content {
-      padding: 10px $grid-gutter-width / 2;
+  @include block-touch-overlay('.touch_effect', $white, $brand-primary, $white, 1, 40px, 60px, 40px, 50%, 100%, 60%);
+  .product__overlay {  
+    .product__overlay__content {
       font-size: $font-size-small;
       color: $gray;
       h5 {
@@ -60,4 +55,12 @@
 
 .products__row {
   margin-top: $grid-gutter-width;
+}
+.products__filters {
+  display: block;
+  margin: $grid-gutter-width 0;
+  .navbar-nav {
+    display: block;
+    float: none;
+  }
 }

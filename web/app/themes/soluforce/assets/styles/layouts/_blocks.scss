@@ -6,6 +6,9 @@
 .benefits_block {
   background: $brand-primary-light;
   color: $gray-base;
+  .benefits__row {
+    margin-top: $grid-gutter-width;
+  }
 }
 
 // Solutions
