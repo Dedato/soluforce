@@ -89,3 +89,40 @@ function split_more_content() {
     return the_content();
   }  
 }
+
+
+/*
+ * WP Login & Admin styling
+ */
+add_action('login_head', __NAMESPACE__ . '\\wp_custom_login'); 
+function wp_custom_login() {
+  echo '<link rel="stylesheet" type="text/css" href="' . \Dedato\SoluForce\Assets\asset_path('styles/wp.css') .'"/>';
+}
+
+// Change url logo Wordpress login page
+add_filter('login_headerurl', __NAMESPACE__ . '\\wp_custom_login_url');
+function wp_custom_login_url(){
+	return (get_home_url());
+}
+
+// Custom style Wordpress dashboard
+add_action('admin_head', __NAMESPACE__ . '\\wp_custom_admin');
+function wp_custom_admin() { 
+	echo '<link rel="stylesheet" type="text/css" href="'. \Dedato\SoluForce\Assets\asset_path('styles/wp.css') .'" />'; 
+}
+
+
+/*
+ * This allows us to automatically empty the cache during deployments
+ */
+ 
+$ftppass = file_get_contents( get_template_directory() . '/.ftppass.json' );
+$data    = json_decode($ftppass);
+$secret  = $data->secretkey;
+
+if (!empty($_GET['w3tcEmptyCache']) && $_GET['w3tcEmptyCache'] == $secret) {
+  if (function_exists('w3tc_pgcache_flush')) {
+    w3tc_pgcache_flush();
+  }
+  die('W3 Total Cache Cleared');
+}
