@@ -19,9 +19,15 @@ var runSequence  = require('run-sequence');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
+
+// ## Custom
 var svgmin       = require('gulp-svgmin');
 var svg2png      = require('gulp-svg2png');
 var bless        = require('gulp-bless');
+var gutil        = require('gulp-util');
+var vinylftp     = require('vinyl-ftp');
+var emptycache   = require('gulp-open');
+var ftppass      = require('./.ftppass.json');
 
 
 // See https://github.com/austinpray/asset-builder
@@ -267,6 +273,55 @@ gulp.task('jshint', function() {
     .pipe(gulpif(enabled.failJSHint, jshint.reporter('fail')));
 });
 
+
+
+// ### Upload
+// Only runs on `gulp --production`
+// 1) Delete the remote dist directory completely
+// 2) Upload all modified and new files (including freshly created dist directory)
+// 3) Empty the W3 Total Cache (if installed) to clear all references to the previous stylesheets & scripts
+gulp.task('upload', function(callback) {
+  runSequence('rmdirdist', 'ftpupload', 'emptycache', callback);
+});
+
+// ### Remove remote dist directory
+gulp.task( 'rmdirdist', function (cb) {
+  var conn = vinylftp.create( ftppass );
+  conn.rmdir( '/public_html/new.soluforce.net/app/themes/soluforce/dist', cb );
+});
+
+// ### Upload Vinyl FTP
+gulp.task('ftpupload', function (callback) {
+  var conn = vinylftp.create({
+    host:       ftppass.host,
+    user:       ftppass.user,
+    password:   ftppass.password,
+    log:        gutil.log
+  });
+  var globs = [
+    '*.php',
+    'dist/**',
+    'dist/scripts/*(.js|+(-*.js))',
+    'dist/styles/*(.css|+(-*.css))',
+    'lang/**',
+    'lib/*.php',
+    'views/*.twig'
+  ];
+  // using base = '.' will transfer everything to /public_html correctly
+  // turn off buffering in gulp.src for best performance
+  return gulp.src( globs, { base: '.', buffer: false } )
+    .pipe( conn.newer( '/public_html/new.soluforce.net/app/themes/soluforce' ) ) // only upload newer files
+    .pipe( conn.dest( '/public_html/new.soluforce.net/app/themes/soluforce' ) );
+});
+
+// ### Empty Cache 
+gulp.task('emptycache', function(cb) {
+  gulp.src('')
+  .pipe(emptycache({uri: 'http://new.soluforce.net/?w3tcEmptyCache=' + ftppass.secretkey}));
+});
+
+
+
 // ### Clean
 // `gulp clean` - Deletes the build folder entirely.
 gulp.task('clean', require('del').bind(null, [path.dist]));
@@ -299,12 +354,22 @@ gulp.task('watch', function() {
 // `gulp build` - Run all the build tasks but don't clean up beforehand.
 // Generally you should be running `gulp` instead of `gulp build`.
 gulp.task('build', function(callback) {
-  runSequence('styles',
-              'bless',
-              'scripts',
-              ['fonts', 'images', 'svg'],
-              callback);
+  var tasks = [
+    'styles',
+    'bless',
+    'scripts', 
+    ['fonts', 'images', 'svg']
+  ];
+  // only add upload to task list if `--production`
+  if (argv.production) {
+    tasks = tasks.concat(['upload']);
+  }
+  runSequence.apply(
+    this,
+    tasks.concat([callback])
+  );
 });
+
 
 // ### Wiredep
 // `gulp wiredep` - Automatically inject Less and Sass Bower dependencies. See
