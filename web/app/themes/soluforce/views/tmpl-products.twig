@@ -8,7 +8,16 @@
     {% endblock %}
   </section>
   {% if products %}
-    <section class="products__row row">
+    <nav class="products__filters">
+      <h3>{{ __('Sort by solution:', 'soluforce') }}</h3>
+      <div class="button-group filter-button-group">
+        <button class="btn btn-default btn-outline" data-filter="*">{{ __('All', 'soluforce') }}</button>        
+        {% for solution in solutions_with_products %}
+          <button class="btn btn-default btn-outline" data-filter=".{{solution.slug}}">{{solution.post_name}}</button>
+        {% endfor %}
+      </div>
+    </nav>
+    <section class="products__row row products__grid">
       {% block products %}
         {% for product in products %}
           {% set grid_sizes = [ [['col-sm-4', 360, 0, 'center', 768], ['col-xs-12', 738, 0, 'center']], 360, 0, 'center' ] %}
