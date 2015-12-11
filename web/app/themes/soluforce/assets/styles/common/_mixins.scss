@@ -1,6 +1,18 @@
 /*
  * Responsive intrinsic ratios
  * http://www.fredparke.com/blog/css-padding-trick-responsive-intrinsic-ratios
+ *
+ * 1) $w: image ratio width
+ * 2) $h: image ratio height
+ * 3) $selector: css class selector to apply intrinsic ratio on
+ * 4) $breakpoint: breakpoint where the image ratio changes
+ * 5) $w-br: image ratio width after breakpoint
+ * 6) $h-br: image ratio height after breakpoint
+ * 7) $bg: background color for loading div
+ * 8) $color: text & icon color for loading div
+ * 9) $fa-size: icon size in loading div
+ * 10) $fa-size-br: icon size in loading div after breakpoint
+ *
  */
 @mixin intrinsic-pad-ratio($w: 4, $h: 3, $selector: picture, $breakpoint: 768, $w-br: 4, $h-br: 3, $bg: inherit, $color: $white, $fa-size: 1em, $fa-size-br: 1em) {
   position: relative;
@@ -50,4 +62,103 @@
 @mixin background-opacity($color, $opacity: 0.5) {
   background: $color; /* The Fallback */
   background: rgba($color, $opacity);
+}
+
+
+/*
+ * Touch Effect Overlay
+ *
+ * 1) $selector: css class selector to apply touch effect overlay on
+ * 2) $image-bg: image loading background color
+ * 3) $icon-color: image loading icon color 
+ * 4) $overlay-color: overlay background color
+ * 5) $overlay-opacity: overlay background opacity
+ * 6) $overlay-height: overlay height
+ * 7) $overlay-hover-height: overlay height on hover
+ *
+ */
+@mixin block-touch-overlay($selector: touch_effect, $image-bg: lighten($brand-primary, 10%), $icon-color: $white, $overlay-color: $white, $overlay-opacity: 0.8, $overlay-height: 15%, $overlay-height-sm: 30%, $overlay-height-md: 22.5%, $overlay-hover-height: 25%, $overlay-hover-height-sm: 50%, $overlay-hover-height-md: 37.5%) {
+  margin-bottom: $grid-gutter-width;
+  #{$selector} {
+    position: relative;
+    overflow: hidden;
+    color: $gray-base;
+    a {color: $gray-base; }
+    [class$="__image"] {
+      @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, $image-bg, $icon-color);
+      .stretch.loading {
+        .fa {font-size: 1em; }
+      }
+    }
+    [class$="__overlay"] {        
+      display: block;
+      position: absolute;
+      z-index: 20;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: $overlay-height;
+      overflow: hidden;
+      transition: height .25s ease;
+      @include background-opacity($overlay-color, $overlay-opacity);
+      [class$="__overlay__content"] {
+        height: 100%;
+        padding: 10px $grid-gutter-width / 2;
+        h1, h2, h3, h4, h5, h6 {
+          margin: 0 0 0.1em;
+          text-transform: capitalize;
+          font-weight: 400; 
+        }
+        [class$="__overlay__content__links"] {
+          margin: 0;
+          font-size: $font-size-small;
+          text-transform: capitalize;
+          display: none;
+          a {
+            color: $gray;
+            &:hover,
+            &:focus {
+              color: $white;
+            }
+          }
+        }
+      }
+      @media (min-width: $screen-sm-min) {
+        height: $overlay-height-sm;
+      }
+      @media (min-width: $screen-md-min) {
+        height: $overlay-height-md;
+      }
+    }  
+    &.hover {
+      cursor: pointer;
+      [class$="__overlay"] {
+        height: $overlay-hover-height;
+        max-height: 100%;
+        [class$="__overlay__content"] {
+          .hidden {
+            display: inline-block !important;
+          }
+          [class$="__overlay__content__links"] {
+            display: block;
+          }
+        }
+        @media (min-width: $screen-sm-min) {
+          height: $overlay-hover-height-sm;
+        }  
+        @media (min-width: $screen-md-min) {
+          height: $overlay-hover-height-md;
+        }
+      }
+    }
+    &.under {
+      padding-bottom: $overlay-height;
+      @media (min-width: $screen-sm-min) {
+        padding-bottom: $overlay-height-sm;
+      }
+      @media (min-width: $screen-md-min) {
+        padding-bottom: $overlay-height-md;
+      }
+    }
+  }    
 }
