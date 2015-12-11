@@ -12,7 +12,8 @@
     "font-awesome": "~4.5.0",
     "respimage": "~1.4.2",
     "lazysizes": "~1.3.1",
-    "owl.carousel": "~2.0.0-beta.3"
+    "owl.carousel": "~2.0.0-beta.3",
+    "matchHeight": "~0.6.0"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -65,8 +66,5 @@
         "./respimage.js"
       ]
     }
-  },
-  "resolutions": {
-    "font-awesome": "~4.5.0"
   }
 }
