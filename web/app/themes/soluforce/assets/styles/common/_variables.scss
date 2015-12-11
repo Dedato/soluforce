@@ -46,6 +46,7 @@ $link-hover-decoration:           none;
 //== Typography
 $font-family-sans-serif:          "Helvetica Neue", Helvetica, Arial, sans-serif;
 $font-family-sans-serif-light:    "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-base:                $font-family-sans-serif;
 
 $font-size-base:                  16px;
 $font-size-large:                 ceil(($font-size-base * 1.5)); // ~24px
@@ -64,13 +65,21 @@ $line-height-computed:            floor(($font-size-base * $line-height-base)); 
 $headings-font-weight:            700;
 
 //== Components
+$padding-base-vertical:           6px;
+$padding-base-horizontal:         12px;
+
 $border-radius-base:              0;
 $border-radius-large:             0;
 $border-radius-small:             0;
 
 
 //== Buttons
+$btn-font-weight:                 normal;
+
+$btn-default-color:               $brand-primary;
+$btn-default-bg:                  $white;
 $btn-default-border:              $white;
+
 $btn-primary-border:              $brand-primary;
 $btn-success-border:              $brand-success;
 $btn-info-border:                 $brand-info;
