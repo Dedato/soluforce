@@ -1,5 +1,5 @@
-<article class="{{solution.post_title|sanitize}} solutions__solution touch_effect {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
-  <div class="solution__container">
+<article class="{{solution.post_title|sanitize}} solutions__solution {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
+  <div class="solution__container touch_effect">
     <a href="{{solution.link|relative}}" title="{{solution.title}}">
       <div class="solution__image">
         <div class="stretch loading">
@@ -21,8 +21,8 @@
         {% endif %} 
       </div>
     </a>
-    <div class="solution__info">
-      <div class="entry-title">
+    <div class="solution__overlay">
+      <div class="solution__overlay__content">
         <h2><a href="{{solution.link|relative}}" title="{{solution.title}}">{{solution.post_name}}</a></h2> 
       </div>
     </div>
