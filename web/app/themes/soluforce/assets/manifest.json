@@ -12,6 +12,11 @@
       ],
       "main": true
     },
+    "wp.css": {
+      "files": [
+        "styles/components/wp-admin.scss"
+      ]
+    },
     "customizer.js": {
       "files": [
         "scripts/customizer.js"
