@@ -11,6 +11,9 @@
   {% elseif post.post_type == 'case' %}
     {% include 'sidebar-solutions.twig' %}
     {% include 'sidebar-downloads.twig' %}
+  {% elseif post.post_type == 'installation' %}
+    {% include 'sidebar-products.twig' %}
+    {% include 'sidebar-downloads.twig' %}
   {% else %}  
     {{sidebar_primary}}
   {% endif %}
