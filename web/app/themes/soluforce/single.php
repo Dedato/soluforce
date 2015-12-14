@@ -49,6 +49,21 @@ elseif (is_singular('case')):
     );
     $data['solutions'] = Timber::get_posts($solutions_args);
   endif;
+// Installation  
+elseif (is_singular('installation')):
+  // Get header image
+  $data['header_img']   = get_field('acf_installation_image');
+  // Get connected products
+  $product_ids  = get_field('acf_installation_products', false, false);
+  if ($product_ids) :
+    $product_args = array(
+      'post_type'       => 'product',
+      'post__in'		    => $product_ids,
+      'orderby'         => 'post__in',
+      'posts_per_page'	=> -1
+    );
+    $data['products'] = Timber::get_posts($product_args);
+  endif; 
 endif;
 
 Timber::render(array( 'single-' . $post->post_type . '.twig', 'page.twig' ), $data);
