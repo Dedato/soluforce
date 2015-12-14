@@ -1,0 +1,19 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  {% block content %}
+    <h1>{{post.title}}</h1>
+    <div class="columns">{{post.content}}</div>
+  {% endblock %} 
+  {% if installation_steps %}
+    {% block steps %}
+      <h2>{{ __('Steps', 'soluforce') }}</h2>
+      <div class="steps__row row">
+        {% for step in installation_steps %}
+          {% set grid_sizes = [ [['col-xs-12', 750, 562, 'center']], 750, 562, 'center' ] %}
+          {% include 'loop-step.twig' %}
+        {% endfor %}
+      </div>
+    {% endblock %}  
+  {% endif %}
+{% endblock %}
