@@ -1,0 +1,18 @@
+<article class="{{step.acf_installation_step_title | sanitize}} steps__step {% for size in grid_sizes[0] %} {{ size[0] }} {% endfor %}">
+  <div class="step__container touch_effect under">
+    <div class="step__image">
+      <div class="stretch loading">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+      </div>
+      {% if step.acf_installation_step_image %}
+        <img class="stretch" src="{{TimberImage(step.acf_installation_step_image).src}}" alt="{{TimberImage(step.acf_installation_step_image).alt}}" />
+      {% endif %}  
+    </div>
+    <div class="step__overlay">
+      <div class="overlay__content">
+        <h5><span class="index">{{loop.index}}.</span> {{step.acf_installation_step_title}}</h5>
+        <div class="desc hidden">{{step.acf_installation_step_desc | wpautop}}</div>
+      </div>
+    </div>
+  </div>
+</article>
