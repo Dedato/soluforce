@@ -3,6 +3,8 @@
   height: auto !important;
   height: 100%;
   padding-top: $header-height-sm;
+  background-color: $body-bg;
+  transition: all 0.25s ease;
   .has-sub & {padding-top: $header-height-sm; }
   .mini & { padding-top: $header-height-min; }
   .mini.has-sub & {padding-top: $header-height-min; }
@@ -17,6 +19,9 @@
     .has-sub & {padding-top: $header-height + $navbar-sub-height; }
     .mini & { padding-top: $header-height-min; }
     .mini.has-sub & {padding-top: $header-height-min + $navbar-sub-height; }
+  }
+  .show-nav & {
+    opacity: 0.6;
   }
 }
 
