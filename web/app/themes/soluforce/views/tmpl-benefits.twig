@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  <section class="entry-content">
+    {% block content %}
+      <h1>{{post.title}}</h1>
+      <div class="columns">{{post.content}}</div>
+    {% endblock %}
+  </section>
+  {% if benefits %}
+    <section class="benefits__row row">
+      {% block benefits %}
+        {% for benefit in benefits %}          
+          {% set grid_sizes = [ [['col-sm-4', 360, 360, 768], ['col-xs-6', 346, 346]], 360, 360 ] %}
+          {% include 'loop-benefit.twig' %}
+        {% endfor %}
+      {% endblock %}
+    </section>
+  {% endif %} 
+{% endblock %}
