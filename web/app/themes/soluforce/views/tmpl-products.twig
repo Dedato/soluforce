@@ -12,7 +12,7 @@
       <h3>{{ __('Sort by solution:', 'soluforce') }}</h3>
       <div class="button-group filter-button-group">
         <button class="btn btn-default btn-outline" data-filter="*">{{ __('All', 'soluforce') }}</button>        
-        {% for solution in solutions_with_products %}
+        {% for solution in solutions_products %}
           <button class="btn btn-default btn-outline" data-filter=".{{solution.slug}}">{{solution.post_name}}</button>
         {% endfor %}
       </div>
