@@ -2,9 +2,9 @@
   .product__container {
     background: $white; 
   }
-  @include block-touch-overlay('.touch_effect', $white, $brand-primary, $white, 1, 40px, 60px, 40px, 50%, 100%, 60%);
+  @include block-touch-overlay('.touch_effect', $white, $brand-primary, $white, 1, 40px, 60px, 40px, 50%, 100%, 100%);
   .product__overlay {  
-    .product__overlay__content {
+    [class*="overlay__content"] {
       font-size: $font-size-small;
       color: $gray;
       h5 {
@@ -59,8 +59,14 @@
 .products__filters {
   display: block;
   margin: $grid-gutter-width 0;
-  .navbar-nav {
-    display: block;
-    float: none;
+  .filter-button-group {
+    .btn {
+      margin-right: 5px;
+      text-transform: capitalize;
+      &.active {
+        background: $white;
+        color: $brand-primary;
+      }
+    }
   }
 }
