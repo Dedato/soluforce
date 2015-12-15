@@ -1,15 +1,24 @@
 // Benefits
+.page-template-template-benefits {
+  .wrap {
+    background: $brand-primary-light;
+    color: $gray-base;
+  }
+}
+.benefits__row {
+  margin-top: $grid-gutter-width;
+}
 .benefits__benefit {
   @include block-touch-overlay('.touch_effect', $brand-primary, $white, $white, 1, 50px, 60px, 50px, 100%, 100%, 50%);
   .touch_effect {
-    [class$="__image"] {
+    [class*="__image"] {
       @include intrinsic-pad-ratio(1, 1, '.stretch', 768, 1, 1, $brand-primary, $white);
       img.stretch {
         background: $brand-primary;
         transition: background .25s ease;
       }
     }
-    [class$="__overlay__content"] {
+    .overlay__content {
       .index {font-weight: 700; }
       .desc {
         margin: 1em 0 0;
@@ -19,7 +28,7 @@
     }
     &.hover {
       cursor: pointer;
-      [class$="__image"] {
+      [class*="__image"] {
         img.stretch {
           background: darken($brand-primary, 10%);
         }
