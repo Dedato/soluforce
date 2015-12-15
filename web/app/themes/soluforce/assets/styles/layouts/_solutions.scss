@@ -25,9 +25,9 @@
 .single-solution {
   .cases__case {
     .case__container {
-      [class$="__overlay"] {
-        [class$="__overlay__content"] {
-          [class$="__overlay__content__links"] {
+      [class*="__overlay"] {
+        [class*="overlay__content"] {
+          [class*="__overlay__content__links"] {
             display: none;
           }
         }
