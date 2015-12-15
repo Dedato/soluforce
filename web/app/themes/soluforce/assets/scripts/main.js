@@ -18,6 +18,14 @@
     // All pages
     'common': {
       init: function() {
+        // Add show nav class to body when mobile menu is collapsed
+        $('.navbar-toggle').click(function() {
+          if($('body').hasClass('show-nav')){
+            $('body').removeClass('show-nav');
+          } else {
+            $('body').addClass('show-nav');
+          }
+        });
         // Add submenu class if present
         if ( $('.banner #sub-nav').length ) {
           $('body').addClass('has-sub');
@@ -37,7 +45,7 @@
           }
         });
         // Searchfield
-        $('.search-form__top-nav .toggle-search').click(function(e) {
+        $('.toggle-search').click(function(e) {
           e.preventDefault();
           $(this).toggleClass('search-on');
           $('.search-form__top-nav .search-field').animate({width: 'toggle'}, 'fast', function() {
@@ -48,7 +56,7 @@
                 $('.search-form__top-nav').submit();
               }
             });
-            $('.search-form__top-nav .toggle-search').click(function(e) {
+            $('.toggle-search').click(function(e) {
               e.preventDefault();
             });
           });
@@ -129,6 +137,7 @@
         });
         // filter items on button click
         $('.filter-button-group').on( 'click', 'button', function() {
+          $(this).toggleClass('active').siblings().removeClass('active');
           var filterValue = $(this).attr('data-filter');
           $grid.isotope({ filter: filterValue });
         });
