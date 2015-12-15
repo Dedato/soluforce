@@ -58,13 +58,6 @@
 }
 
 
-/* Converting Hex to RGBa for background opacity */
-@mixin background-opacity($color, $opacity: 0.5) {
-  background: $color; /* The Fallback */
-  background: rgba($color, $opacity);
-}
-
-
 /*
  * Touch Effect Overlay
  *
@@ -84,7 +77,7 @@
     overflow: hidden;
     color: $gray-base;
     a {color: $gray-base; }
-    [class$="__image"] {
+    [class*="__image"] {
       @include intrinsic-pad-ratio(4, 3, '.stretch', 768, 4, 3, $image-bg, $icon-color);
       .stretch.loading {
         .fa {font-size: 1em; }
@@ -101,7 +94,8 @@
       overflow: hidden;
       transition: height .25s ease;
       @include background-opacity($overlay-color, $overlay-opacity);
-      [class$="__overlay__content"] {
+      .overlay__content {
+        overflow: auto;
         height: 100%;
         padding: 10px $grid-gutter-width / 2;
         h1, h2, h3, h4, h5, h6 {
@@ -109,7 +103,7 @@
           text-transform: capitalize;
           font-weight: 400; 
         }
-        [class$="__overlay__content__links"] {
+        [class*="__overlay__content__links"] {
           margin: 0;
           font-size: $font-size-small;
           text-transform: capitalize;
@@ -123,6 +117,10 @@
           }
         }
       }
+      .overlay__content--no-overflow {
+        @extend .overlay__content;
+        overflow: hidden;
+      }
       @media (min-width: $screen-sm-min) {
         height: $overlay-height-sm;
       }
@@ -135,11 +133,11 @@
       [class$="__overlay"] {
         height: $overlay-hover-height;
         max-height: 100%;
-        [class$="__overlay__content"] {
+        .overlay__content {
           .hidden {
             display: inline-block !important;
           }
-          [class$="__overlay__content__links"] {
+          [class*="__overlay__content__links"] {
             display: block;
           }
         }
@@ -160,5 +158,11 @@
         padding-bottom: $overlay-height-md;
       }
     }
-  }    
+  }
+}
+
+/* Converting Hex to RGBa for background opacity */
+@mixin background-opacity($color, $opacity: 0.5) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
 }
