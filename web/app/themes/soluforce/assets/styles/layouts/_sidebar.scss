@@ -12,4 +12,16 @@
   .data-sheet {
     .fa {margin-right: 0.25em; } 
   }
+  // Social Links
+  .sidebar__social__links {
+    display: inline-block;
+    .nav {
+      font-size: 1.5em;
+      @extend .social__media_links;
+    }    
+  }
+  // Widgets
+  .widget {
+    margin-bottom: $grid-gutter-width;
+  }
 }
