@@ -58,6 +58,28 @@ if ( function_exists('acf_add_options_page') ) {
 		'menu_title'	=> 'Social Media',
 		'parent_slug'	=> 'soluforce-options',
 	));
+  acf_add_options_sub_page(array(
+		'page_title' 	=> '404 Settings',
+		'menu_title'	=> '404 Page',
+		'parent_slug'	=> 'soluforce-options',
+	));
+}
+
+/**
+ * Gravity Forms
+ */
+ 
+add_filter('gform_ajax_spinner_url', __NAMESPACE__ . '\\tgm_io_custom_gforms_spinner');
+/**
+ * Changes the default Gravity Forms AJAX spinner.
+ *
+ * @since 1.0.0
+ *
+ * @param string $src  The default spinner URL.
+ * @return string $src The new spinner URL.
+ */
+function tgm_io_custom_gforms_spinner($src) {
+  return get_stylesheet_directory_uri() . '/dist/images/ajax_loader.gif';
 }
 
 
