@@ -23,7 +23,7 @@
       </div>  
       <div class="social col-xs-6 col-sm-4">
         {% if options.social_media %}
-          <ul class="nav navbar-nav">
+          <ul class="social__links nav navbar-nav">
             {% for social in options.social_media %}
               <li class="{{social.social_media_name | sanitize}}"><a href="{{social.social_media_url}}" title="{{social.social_media_name}}" target="_blank"><i class="fa fa-{{social.social_media_icon}}"></i></a></li>
             {% endfor %}
