@@ -88,10 +88,10 @@ $btn-danger-border:               $brand-danger;
 
 
 //== Forms
-$input-bg:                        $white;
+$input-bg:                        $brand-primary-light;
 $input-bg-disabled:               $gray-lighter;
 $input-color:                     $gray-base;
-$input-border:                    $white;
+$input-border:                    $brand-primary-light;
 $input-border-focus:              $brand-secondary;
 $input-color-placeholder:         $gray-light;
 
@@ -149,3 +149,9 @@ $navbar-default-brand-hover-bg:            transparent;
 $navbar-default-toggle-hover-bg:           transparent;
 $navbar-default-toggle-icon-bar-bg:        $white;
 $navbar-default-toggle-border-color:       transparent;
+
+
+//== Alerts
+$alert-warning-bg:                $brand-secondary;
+$alert-warning-text:              $brand-primary;
+$alert-warning-border:            $brand-secondary;
