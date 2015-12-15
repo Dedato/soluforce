@@ -5,12 +5,12 @@
     <h1>{{post.title}}</h1>
     <div class="columns">{{post.content}}</div>
   {% endblock %} 
-  {% if installation_steps %}
+  {% if steps %}
     {% block steps %}
-      <h2>{{ __('Steps', 'soluforce') }}</h2>
+      <h2>{{ __('%s in %s steps', 'soluforce') | format(post.title, steps|length) }}</h2>
       <div class="steps__row row">
-        {% for step in installation_steps %}
-          {% set grid_sizes = [ [['col-xs-12', 750, 562, 'center']], 750, 562, 'center' ] %}
+        {% for step in steps %}
+          {% set grid_sizes = [ [['col-sm-6', 360, 270, 'center', 768], ['col-xs-12', 750, 562, 'center']], 360, 270, 'center' ] %}
           {% include 'loop-step.twig' %}
         {% endfor %}
       </div>
