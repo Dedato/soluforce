@@ -1,0 +1,11 @@
+{% extends "base.twig" %}
+
+{% block main %}
+  <h1>{{ __("Page not found", "soluforce") }}</h1>
+  <p>{{ __("Sorry, we couldn't find what you're looking for. Instead try one of the following options:", "soluforce") }}</p>
+  <ul class="error-options list-unstyled">
+    <li><a href="javascript:history.go(-1)"><i class="fa fa-arrow-left fa-fw"></i>{{ __('Go back to the previous page', 'soluforce') }}</a></li>
+		<li><a href="{{site.url}}"><i class="fa fa-home fa-fw"></i>{{ __('Go to our homepage', 'soluforce') }}</a></li>
+		<li><a class="toggle-search" href="#"><i class="fa fa-search fa-fw"></i>{{ __('Or try a search', 'soluforce') }}</a></li>
+  </ul>     
+{% endblock %}
