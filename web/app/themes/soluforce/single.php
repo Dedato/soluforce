@@ -53,6 +53,7 @@ elseif (is_singular('case')):
 elseif (is_singular('installation')):
   // Get header image
   $data['header_img']   = get_field('acf_installation_image');
+  $data['steps']        = get_field('acf_installation_steps');
   // Get connected products
   $product_ids  = get_field('acf_installation_products', false, false);
   if ($product_ids) :
@@ -64,6 +65,7 @@ elseif (is_singular('installation')):
     );
     $data['products'] = Timber::get_posts($product_args);
   endif; 
+  $data['data_sheet']   = get_field('acf_installation_data_sheet');
 endif;
 
 Timber::render(array( 'single-' . $post->post_type . '.twig', 'page.twig' ), $data);
