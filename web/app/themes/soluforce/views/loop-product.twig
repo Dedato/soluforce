@@ -23,9 +23,9 @@
       </div>
     {% endif %}    
     <div class="product__overlay">
-      <div class="product__overlay__content">
+      <div class="overlay__content">
         <h5 class="light {{product.terms[0].slug}}">{{product.title}}</h5>
-        <div class="desc hidden">{{product.get_preview(20, false, '')}}</div>
+        <div class="desc hidden">{# product.get_preview(20, false, '') #} {{product.content}}</div>
       </div>
     </div>
   </div>

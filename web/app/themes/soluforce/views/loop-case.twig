@@ -22,7 +22,7 @@
       </div>
     </a>  
     <div class="case__overlay">
-      <div class="case__overlay__content">
+      <div class="overlay__content--no-overflow">
         <h4><a href="{{case.link|relative}}" title="{{case.post_title}}">{{case.post_title}}</a></h4>
         {% if case.get_field('acf_case_solutions') %}
           {% set solutions = fn('get_case_solutions', case.get_field('acf_case_solutions')) %}
