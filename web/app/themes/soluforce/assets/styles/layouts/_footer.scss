@@ -1,6 +1,8 @@
 .content-info {
   font-size: 0.75em;
   padding: 20px 0 0 0;
+  background-color: $body-bg;
+  transition: opacity .25s ease;
   .lt-ie9 & {
     @include background-opacity($gray-base, 0.5);
     filter: null;
@@ -31,31 +33,10 @@
     }
   }
   .social {
-    .navbar-nav {
+    .social__links {
       padding-top: 15px;
-      > li {
-        display: inline-block;
-        &:not(:last-child) {
-          margin-right: 5px;
-        }  
-        > a {
-          font-size: 2.1em;
-          padding: 0;
-          color: $white;
-          transition: all .25s ease;
-          &:hover {
-            background: transparent;
-            color: $brand-secondary;
-          }
-        }
-      }
-      @media (min-width: 480px) {
-        > li {
-          &:not(:last-child) {
-            margin-right: 10px;
-          }  
-        }   
-      }
+      font-size: 2.1em;
+      @extend .social__media_links;
     }    
   }
   .brand {
@@ -71,5 +52,8 @@
         padding: 20px 0 5px;
       }
     }
+  }
+  .show-nav & {
+    opacity: 0.6;
   }
 }
