@@ -1,10 +1,15 @@
 {% block sidebar %}
-
   {% if post.post_type == 'page' %}
     {% if sidebar_img %}
       {% set grid_sizes = [ [['col-sm-4', 360, 0, '', 768], ['col-xs-12', 738, 0, '']], 360, 0, ''] %}
       {% include 'sidebar-image.twig' %}
-    {% endif %}  
+    {% endif %}
+    {% if sidebar_content %}
+      {% include 'sidebar-content.twig' %}
+    {% endif %}
+    {% if post._wp_page_template == 'template-contact.php' and options.social_media %}
+      {% include 'sidebar-social.twig' %}
+    {% endif %}
   {% elseif post.post_type == 'solution' %}
     {% include 'sidebar-products.twig' %}
     {% include 'sidebar-downloads.twig' %}
@@ -17,5 +22,4 @@
   {% else %}  
     {{sidebar_primary}}
   {% endif %}
-  
 {% endblock %}
