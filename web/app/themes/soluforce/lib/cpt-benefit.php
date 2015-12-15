@@ -14,7 +14,7 @@ function benefit_init() {
 		'show_in_nav_menus'   => true,
 		'show_ui'             => true,
 		'menu_position'		    => 29,
-		'supports'            => array('title', 'editor'),
+		'supports'            => array('title', 'editor', 'excerpt'),
 		'has_archive'         => 'benefits',
 		'query_var'           => true,
 		'rewrite'             => array('slug' => 'benefit'),

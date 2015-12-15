@@ -14,7 +14,7 @@ function case_init() {
 		'show_in_nav_menus'   => true,
 		'show_ui'             => true,
 		'menu_position'		    => 26,
-		'supports'            => array('title', 'editor'),
+		'supports'            => array('title', 'editor', 'excerpt'),
 		'has_archive'         => 'cases',
 		'query_var'           => true,
 		'rewrite'             => array('slug' => 'case'),

@@ -14,7 +14,7 @@ function installation_init() {
 		'show_in_nav_menus'   => true,
 		'show_ui'             => true,
 		'menu_position'		    => 27,
-		'supports'            => array('title', 'editor', 'page-attributes'),
+		'supports'            => array('title', 'editor', 'excerpt', 'page-attributes'),
 		'has_archive'         => false,
 		'query_var'           => true,
 		'rewrite'             => array('slug' => 'installation'),
