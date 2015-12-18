@@ -1,0 +1,28 @@
+// Searchresults
+.search-results {
+  .search_total,
+  .search_query {color: $brand-secondary;}
+  .searchresults__row {margin-top: $grid-gutter-width; }
+  .searchresults__searchresult {
+    h3 {
+      a {
+        &:hover,
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+    .entry-content {
+      .read-more {
+        display: block;
+        color: $white;
+        text-decoration: underline;
+        &:hover,
+        &:focus {
+          color: $brand-secondary;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
