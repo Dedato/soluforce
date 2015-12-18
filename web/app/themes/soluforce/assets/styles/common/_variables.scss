@@ -151,7 +151,25 @@ $navbar-default-toggle-icon-bar-bg:        $white;
 $navbar-default-toggle-border-color:       transparent;
 
 
+//== Pagination
+$pagination-color:                     $brand-primary;
+$pagination-bg:                        $white;
+$pagination-border:                    $white;
+
+$pagination-hover-color:               $brand-primary;
+$pagination-hover-bg:                  $brand-primary-light;
+$pagination-hover-border:              $brand-primary-light;
+
+$pagination-active-color:              $white;
+$pagination-active-bg:                 lighten($brand-primary, 10%);
+$pagination-active-border:             lighten($brand-primary, 10%);
+
+$pagination-disabled-color:            $brand-primary;
+$pagination-disabled-bg:               $brand-primary-dark;
+$pagination-disabled-border:           $brand-primary-dark;
+
+
 //== Alerts
-$alert-warning-bg:                $brand-secondary;
-$alert-warning-text:              $brand-primary;
-$alert-warning-border:            $brand-secondary;
+$alert-warning-bg:                    $brand-secondary;
+$alert-warning-text:                  $brand-primary;
+$alert-warning-border:                $brand-secondary;
