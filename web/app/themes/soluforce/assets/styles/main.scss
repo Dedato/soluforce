@@ -19,11 +19,11 @@
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_input-groups.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_navs.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_navbar.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_pagination.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_pager.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_labels.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_alerts.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_list-group.scss";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_responsive-embed.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss";
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_responsive-utilities.scss";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
@@ -53,6 +53,7 @@
 @import "layouts/_steps";
 @import "layouts/_products";
 @import "layouts/_installations";
+@import "layouts/_search";
 @import "layouts/_sidebar";
 @import "layouts/_footer";
 @import "layouts/_tinymce";
