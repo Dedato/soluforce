@@ -96,8 +96,23 @@ a {
   &:focus,
   &.focus {
     outline: none;
-  } 
+  }
 }
 
 // Selections
 ::selection {background:$brand-secondary; color:$brand-primary; text-shadow:none; }
+
+// Pagination
+.pagination {
+  > li {
+    > a,
+    > span {
+      border: none;
+      &.current {
+        color: $pagination-active-color;
+        background: $pagination-active-bg;
+        border: none;
+      }
+    }
+  }
+}
