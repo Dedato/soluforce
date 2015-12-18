@@ -2,7 +2,39 @@
 
 {% block main %}
   <h1>{{title}}</h1>
-  {% for post in posts %}
-    {% include 'loop-list.twig' %}
-	{% endfor %}
+  <h3>{{ __('Page %s of %s', 'soluforce') | format(pagination.current, pagination.total) }}</h3>
+  {% if posts %}
+    <section class="searchresults__row list">
+      {% block searchresults %}
+        {% for post in posts %}
+          {% include 'loop-list.twig' %}
+        {% endfor %}
+      {% endblock %}
+    </section>
+  {% endif %}
+  {% if pagination.pages %}
+  	<nav class="searchresults__nav">
+      <ul class="pagination">
+        {% if pagination.prev %}
+            <li><a href="{{pagination.prev.link}}" class="prev {{pagination.prev.link|length ? '' : 'invisible'}}" aria-label="Previous">
+              <span aria-hidden="true"><i class="fa fa-angle-left"></i></span></a>
+            </li>
+        {% endif %}
+        {% for page in pagination.pages %}
+            <li>
+              {% if page.link %}
+                <a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+              {% else %}
+                <span class="{{page.class}}">{{page.title}}</span>
+              {% endif %}
+            </li>
+        {% endfor %}
+        {% if pagination.next %}
+            <li><a href="{{pagination.next.link}}" class="next {{pagination.next.link|length ? '' : 'invisible'}}" aria-label="Next">
+              <span aria-hidden="true"><i class="fa fa-angle-right"></i></span></a>
+            </li>
+        {% endif %}
+      </ul>
+    </nav>
+  {% endif %}
 {% endblock %}
