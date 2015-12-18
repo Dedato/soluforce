@@ -8,10 +8,12 @@
 // Search form
 .search-form {
   @extend .form-inline;
+  display: inline-block;
 }
 .search-form label {
   font-weight: normal;
   @extend .form-group;
+  float: left;
 }
 .search-form .search-field {
   @extend .form-control;
@@ -19,6 +21,7 @@
 .search-form .search-submit {
   @extend .btn;
   @extend .btn-default;
+  float: left;
 }
 
 // Search form top nav
