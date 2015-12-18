@@ -11,6 +11,7 @@ function product_init() {
 	register_post_type('product', array(
 		'hierarchical'        => false,
 		'public'              => true,
+		'exclude_from_search' => true,
 		'show_in_nav_menus'   => true,
 		'show_ui'             => true,
 		'menu_position'		    => 28,
