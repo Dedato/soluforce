@@ -1,9 +1,6 @@
-<article class="{{post.post_type}}">
+<article class="searchresults__searchresult {{post.post_type}}">
 	{% block content %}
-		<h2 class="h2"><a href="{{post.link}}">{{post.title}}</a></h2>
-		<p>{{post.get_preview}}</p>
-		{% if post.get_thumbnail %}
-			<img src="{{post.thumbnail.src}}" />
-		{% endif %}
+		<h3><span class="searchnr">{{loop.index + ((pagination.current - 1) * ppp) }}.</span> <a href="{{post.link}}" title="{{post.title}}">{{post.title}}</a></h3>
+		<p class="entry-content">{{ post.get_preview(25, true, __('Read More <i class="fa fa-angle-right"></i>', 'soluforce')) }}</p>
 	{% endblock %}
 </article>
