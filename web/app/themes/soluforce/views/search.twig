@@ -2,8 +2,17 @@
 
 {% block main %}
   <h1>{{title}}</h1>
-  <h3>{{ __('Page %s of %s', 'soluforce') | format(pagination.current, pagination.total) }}</h3>
+  <h5>{{ __('Page %s of %s', 'soluforce') | format(pagination.current, pagination.total) }}</h5>
   {% if posts %}
+  
+    {# Get the search query and break it into individual terms #}
+    {% set searchTerms = search | trim | split( ' ' ) %}
+	  {# Build an associated array w/ terms and the replacement string #}
+    {% set replace = {} %}
+    {% for term in searchTerms %}
+      {% set replace = replace | merge( { (term) : '<span class="search_query">' ~ term ~ '</span>' } ) %}
+    {% endfor %}
+    
     <section class="searchresults__row list">
       {% block searchresults %}
         {% for post in posts %}

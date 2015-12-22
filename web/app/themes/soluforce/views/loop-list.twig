@@ -1,6 +1,8 @@
 <article class="searchresults__searchresult {{post.post_type}}">
-	{% block content %}
-		<h3><span class="searchnr">{{loop.index + ((pagination.current - 1) * ppp) }}.</span> <a href="{{post.link}}" title="{{post.title}}">{{post.title}}</a></h3>
-		<p class="entry-content">{{ post.get_preview(25, true, __('Read More <i class="fa fa-angle-right"></i>', 'soluforce')) }}</p>
+	{% block content %}    
+		<h3><span class="searchnr">{{loop.index + ((pagination.current - 1) * ppp) }}.</span> <a href="{{post.link}}" title="{{post.title}}">{{post.title | replace( replace ) | raw }}</a></h3>
+		{# <p class="entry-content">{{ post.get_preview(25, true, __('Read More <i class="fa fa-angle-right"></i>', 'soluforce')) }}</p> #}
+		<p class="entry-content">{{ post.content |excerpt(25) | replace( replace ) | raw }}
+		<a class="read-more" href="{{ post.link | relative }}">{{ __('Read More <i class="fa fa-angle-right"></i>', 'soluforce') }}</a></p>
 	{% endblock %}
 </article>
