@@ -16,6 +16,7 @@ $context['total']       = array(
   'count' => $wp_query->found_posts
 );
 $context['ppp']         = get_option('posts_per_page');
+$context['search']      = get_search_query();
 $context['title']       = '<span class="search_total">' . $context['total']['count'] . '</span> ' . __('search results for:', 'soluforce') . ' <span class="search_query">'. get_search_query() . '</span>';
 $context['posts']       = Timber::get_posts();
 $context['pagination']  = Timber::get_pagination();
