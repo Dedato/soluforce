@@ -1,0 +1,85 @@
+/* ==========================================================================
+   Sharrre
+   ========================================================================== */
+   
+$sharrre-total-icons:     4;
+$sharrre-link-width:      $grid-gutter-width;
+$sharrre-counter-width:   $grid-gutter-width + 10;
+
+#share_bar {
+  @extend .make-row;
+  margin-top: $grid-gutter-width;
+}
+.sharrre {
+  display: inline-block;
+  .box {
+    display: inline-block;
+    position: relative;
+    padding: 0px $sharrre-counter-width 0 0;
+    float: left;
+    clear: both;
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+    &:hover,
+    &:focus {
+      padding-right: ($sharrre-total-icons * $sharrre-link-width) + $sharrre-counter-width;
+      .middle {
+        width: $sharrre-total-icons * $sharrre-link-width;
+      }
+    }
+  }
+  .left {
+    @extend .btn;
+  	@extend .btn-primary;
+    display: block;
+    white-space: nowrap;
+    transition: all 0.25s ease-in-out;
+    @media (max-width: $screen-sm) {
+      @extend .btn-sm;
+    }
+  }
+  .middle {
+    position: absolute;
+    top: 0px;
+    right: $sharrre-counter-width;
+    width: 0px;
+    color: white;
+    white-space: nowrap;
+    text-align: left;
+    overflow: hidden;
+    display: block;
+    transition: width 0.25s ease-in-out;
+    a {
+      @extend .btn;
+      @extend .btn-default;
+      width: $sharrre-link-width;
+      text-align: center;
+      vertical-align: top;
+      i {
+        line-height: $line-height-computed; // Top aligning
+        vertical-align: middle;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      @media (max-width:$screen-sm) {
+        @extend .btn-sm;
+      }
+    }
+  }
+  .right {
+    @extend .btn;
+  	@extend .btn-primary;
+  	background: lighten($brand-primary, 10%);
+  	border-color: lighten($brand-primary, 10%);
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: $sharrre-counter-width;
+    text-align: center;
+    display: block;
+    @media (max-width:$screen-sm) {
+      @extend .btn-sm;
+    }
+  }
+}
