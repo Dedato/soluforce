@@ -13,7 +13,8 @@
     "respimage": "~1.4.2",
     "lazysizes": "~1.3.1",
     "owl.carousel": "~2.0.0-beta.3",
-    "matchHeight": "~0.6.0"
+    "matchHeight": "~0.6.0",
+    "Sharrre": "https://github.com/Julienh/Sharrre.git#~1.3.5"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -62,6 +63,11 @@
     "respimage": {
       "main": [
         "./respimage.js"
+      ]
+    },
+    "Sharrre": {
+      "main": [
+        "./jquery.sharrre.js"
       ]
     }
   }
