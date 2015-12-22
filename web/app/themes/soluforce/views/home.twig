@@ -6,6 +6,7 @@
       {% block content %}
         <h1>{{post.title}}</h1>
         {{split_content}}
+        {% include 'share-bar.twig' %}
       {% endblock %}
     </article>
     {% if post.get_field('acf_banner') %}

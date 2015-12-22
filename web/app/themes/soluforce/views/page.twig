@@ -3,4 +3,5 @@
 {% block main %}
   <h1>{{post.title}}</h1>
   <div class="columns">{{post.content}}</div>
+  {% include 'share-bar.twig' %}
 {% endblock %}
