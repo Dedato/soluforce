@@ -1,14 +1,20 @@
 // Searchresults
 .search-results {
   .search_total,
-  .search_query {color: $brand-secondary;}
+  .search_query,
+  .searchnr {
+    color: $brand-secondary;
+  }
   .searchresults__row {margin-top: $grid-gutter-width; }
   .searchresults__searchresult {
     h3 {
+      color: $white;
       a {
+        color: $white;
+        transition: color .25s ease;
         &:hover,
         &:focus {
-          color: $white;
+          color: $brand-secondary;
         }
       }
     }
