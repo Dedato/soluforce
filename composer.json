@@ -29,7 +29,7 @@
   "repositories": [
     {
       "type": "composer",
-      "url": "http://wpackagist.org"
+      "url": "https://wpackagist.org"
     },
     {
       "type": "package",
@@ -51,7 +51,7 @@
         "type": "wordpress-plugin",
         "dist": {
           "type": "zip",
-          "url": "http://s3.amazonaws.com/gravityforms/releases/gravityforms_1.9.15.1.zip?AWSAccessKeyId=1603BBK66770VCSCJSG2&Expires=1449241668&Signature=xkFrz9AST%2B6irIizKkszCTzD8Dc%3D"
+          "url": "https://s3.amazonaws.com/gravityforms/releases/gravityforms_1.9.15.1.zip?AWSAccessKeyId=1603BBK66770VCSCJSG2&Expires=1449241668&Signature=xkFrz9AST%2B6irIizKkszCTzD8Dc%3D"
         }
       }
     },
