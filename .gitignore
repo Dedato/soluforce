@@ -36,3 +36,6 @@ bin
 
 # Composer
 auth.json
+
+# Private
+DEDATO_INSTRUCTIONS.md
